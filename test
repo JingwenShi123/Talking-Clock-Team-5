@@ -1,10 +1,8 @@
 import tkinter as tk
+from tkinter import PhotoImage
 from datetime import datetime
 import pytz
 import pygame
-
-from chinese_speak_time import speak_chinese
-from english_speak_time import speak_english
 
 # 初始化pygame
 pygame.mixer.init()
@@ -12,6 +10,11 @@ pygame.mixer.init()
 # 创建主窗口
 clock = tk.Tk()
 clock.title("Talking Clock")
+window_width = 1000  # 你可以根据需要设置宽度
+window_height = 700  # 你可以根据需要设置高度
+clock.geometry(f"{window_width}x{window_height}")
+
+
 
 # 时区字典
 timezones = {
@@ -51,6 +54,30 @@ def update_time():
     time_label.config(text=formatted_time)
     formatted_date = localized_time.strftime("%Y-%m-%d %A")
     date_label.config(text=formatted_date)
+
+
+# Function to update the background image based on time
+def update_background():
+    tz = pytz.timezone(current_timezone)
+    localized_time = datetime.now(tz)
+    current_hour = int(localized_time.strftime('%H'))
+    if 6 <= current_hour < 18:  # Check if it's daytime (6 AM to 6 PM)
+        background_image.configure(image=daytime_image)
+    else:
+        background_image.configure(image=nighttime_image)
+    clock.after(60000, update_background)  # Update every minute
+
+
+# Load your daytime and nighttime images using PhotoImage
+daytime_image = tk.PhotoImage(file="daytime.png")
+nighttime_image = tk.PhotoImage(file="nighttime.png")
+
+# Create a label to display the background image
+
+background_image = tk.Label(clock)
+background_image.grid(row=0, column=0, columnspan=len(timezones), rowspan=4)  # 适当调整行列范围
+
+
 
 # 函数：切换语言
 def change_language():
@@ -95,6 +122,24 @@ def change_timezone(city):
 
 # 更新时间
 update_time()
+update_background()
+# Used to set the proper values for the speed rate slider
+play_rates = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
+
+def slider_func(val):
+    new_val = min(play_rates, key=lambda x: abs(x - float(SpeedRate.get())))
+    SpeedRate.set(new_val)
+
+
+# The speech rate slider
+SpeedRate = tk.Scale(clock, from_=0.5, to=2, command=slider_func, orient="horizontal", digits=3, resolution=0.25)
+SpeedRate.set(1)
+SpeedRate.place(x=700,y=50)
+SpeedRate.configure(label='Change the speed rate', troughcolor='black',
+                    length=246)
+
+
+
 
 def speak_chinese(speed_rate=1):
     # 获取当前时间
@@ -206,10 +251,10 @@ def speak_english(speed_rate=1):
     pygame.quit()
 
 # 创建报时按钮
-chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese())
+chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese(SpeedRate.get()))
 chspeak_time_button.grid(row=0, column=1)
 
-enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda:speak_english())
+enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda:speak_english(SpeedRate.get()))
 enspeak_time_button.grid(row=0, column=2)
 
 
