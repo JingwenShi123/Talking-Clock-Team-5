@@ -10,8 +10,8 @@ pygame.mixer.init()
 # 创建主窗口
 clock = tk.Tk()
 clock.title("Talking Clock")
-window_width = 1000  # 你可以根据需要设置宽度
-window_height = 700  # 你可以根据需要设置高度
+window_width = 1000  
+window_height = 700  
 clock.geometry(f"{window_width}x{window_height}")
 
 
@@ -51,17 +51,21 @@ current_language = "英文"  # 默认语言设置为英文
 def update_time():
     tz = pytz.timezone(current_timezone)
     localized_time = datetime.now(tz)
-    formatted_time = localized_time.strftime("%I:%M:%S %p")  # 添加秒数：%S
+    formatted_time = localized_time.strftime("%H:%M:%S %p")  # 添加秒数：%S
     time_label.config(text=formatted_time)
     formatted_date = localized_time.strftime("%Y-%m-%d %A")
     date_label.config(text=formatted_date)
     time_label.after(1000, update_time)  # 每隔1秒调用一次update_time函数
+# 函数：切换时区
+def change_timezone(city):
+    global current_timezone
+    current_timezone = timezones[city]
+    update_time()
 
 # Function to update the background image based on time
 def update_background():
-    tz = pytz.timezone(current_timezone)
-    localized_time = datetime.now(tz)
-    current_hour = int(localized_time.strftime('%H'))
+    tz = datetime.now(pytz.timezone(current_timezone))
+    current_hour = int(tz.strftime('%H'))
     if 6 <= current_hour < 18:  # Check if it's daytime (6 AM to 6 PM)
         background_image.configure(image=daytime_image)
     else:
@@ -77,7 +81,7 @@ nighttime_image = tk.PhotoImage(file="nighttime.png")
 
 background_image = tk.Label(clock)
 background_image.grid(row=0, column=0, columnspan=len(timezones), rowspan=4)  # 适当调整行列范围
-
+update_background()
 
 
 # 函数：切换语言
@@ -94,12 +98,11 @@ def update_language():
     for button in buttons:
         translated_text = translations[current_language].get(button["text"], button["text"])
         button.config(text=translated_text)
-
 # 创建时区按钮
 buttons = []
 for idx, city in enumerate(timezones):
     translated_city = translations[current_language].get(city, city)  # 获取翻译后的城市名
-    button = tk.Button(clock, text=translated_city, command=lambda c=city: change_timezone(c))
+    button = tk.Button(clock, text=translated_city, command=lambda c=city: (update_background(), change_timezone(c)))
     button.grid(row=3, column=idx, padx=10)
     buttons.append(button)
 
@@ -115,15 +118,10 @@ date_label.grid(row=2, column=0, columnspan=len(timezones))
 language_button = tk.Button(clock, text="Change Language", command=change_language)
 language_button.grid(row=0, column=0)
 
-# 函数：切换时区
-def change_timezone(city):
-    global current_timezone
-    current_timezone = timezones[city]
-    update_time()
 
 # 更新时间
 update_time()
-update_background()
+
 
 # Used to set the proper values for the speed rate slider
 play_rates = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
