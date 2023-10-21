@@ -98,11 +98,18 @@ def update_language():
     for button in buttons:
         translated_text = translations[current_language].get(button["text"], button["text"])
         button.config(text=translated_text)
+
 # 创建时区按钮
 buttons = []
 for idx, city in enumerate(timezones):
     translated_city = translations[current_language].get(city, city)  # 获取翻译后的城市名
-    button = tk.Button(clock, text=translated_city, command=lambda c=city: (update_background(), change_timezone(c)))
+
+    # 创建一个新函数，该函数调用update_background()和change_timezone(c)
+    def on_button_click(city=city):
+        update_background()
+        change_timezone(city)
+
+    button = tk.Button(clock, text=translated_city, command=on_button_click)
     button.grid(row=3, column=idx, padx=10)
     buttons.append(button)
 
