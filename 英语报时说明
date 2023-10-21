@@ -18,3 +18,30 @@ EnglishSpeakTime = tk.Button(ClockUI, text="What time is it now?", bd='10',
                               command=lambda: speak_english(SpeedRate.get()))
 EnglishSpeakTime.place(x=200, y=270)
 EnglishSpeakTime.configure(background='#146cfa', font=button_font, width=21)
+
+
+
+
+
+中文的报时格式：现在是+AM/PM+hour+点+min
+中文的py脚本名为chinese_speak_time.py，里面定义了模块speak_chinese
+
+1.最上面
+from French import fr_speak_the_clock
+替换为
+from chinese_speak_time import speak_chinese
+
+2.按钮处
+# The button for telling time in French
+FrSpeakTime = tk.Button(ClockUI, text='Quelle heure est-il?', bd='10',
+                            command=lambda: fr_speak_the_clock(SpeedRate
+                                                               .get()))
+FrSpeakTime.place(x=660, y=370)
+FrSpeakTime.configure(background='#146cfa', font=button_font, width=21)
+替换为
+# The button for telling time in 中文
+ChineseSpeakTime = tk.Button(ClockUI, text='现在几点了?', bd='10',
+                            command=lambda: speak_chinese(SpeedRate
+                                                               .get()))
+ChineseSpeakTime.place(x=660, y=370)
+ChineseSpeakTime.configure(background='#146cfa', font=button_font, width=21)
