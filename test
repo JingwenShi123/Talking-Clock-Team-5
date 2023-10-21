@@ -61,6 +61,7 @@ def change_timezone(city):
     global current_timezone
     current_timezone = timezones[city]
     update_time()
+    update_background()
 
 # Function to update the background image based on time
 def update_background():
@@ -81,8 +82,8 @@ nighttime_image = tk.PhotoImage(file="nighttime.png")
 
 background_image = tk.Label(clock)
 background_image.grid(row=0, column=0, columnspan=len(timezones), rowspan=4)  # 适当调整行列范围
-update_background()
 
+update_background()
 
 # 函数：切换语言
 def change_language():
@@ -103,13 +104,7 @@ def update_language():
 buttons = []
 for idx, city in enumerate(timezones):
     translated_city = translations[current_language].get(city, city)  # 获取翻译后的城市名
-
-    # 创建一个新函数，该函数调用update_background()和change_timezone(c)
-    def on_button_click(city=city):
-        update_background()
-        change_timezone(city)
-
-    button = tk.Button(clock, text=translated_city, command=on_button_click)
+    button = tk.Button(clock, text=translated_city, command=lambda c=city:change_timezone(c))
     button.grid(row=3, column=idx, padx=10)
     buttons.append(button)
 
