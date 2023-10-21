@@ -1,15 +1,17 @@
 import tkinter as tk
-from tkinter import ttk
 from datetime import datetime
 import pytz
 import pygame
+
+from chinese_speak_time import speak_chinese
+from english_speak_time import speak_english
 
 # 初始化pygame
 pygame.mixer.init()
 
 # 创建主窗口
-root = tk.Tk()
-root.title("Talking Clock")
+clock = tk.Tk()
+clock.title("Talking Clock")
 
 # 时区字典
 timezones = {
@@ -51,7 +53,7 @@ def update_time():
     date_label.config(text=formatted_date)
 
 # 函数：切换语言
-def toggle_language():
+def change_language():
     global current_language
     if current_language == "中文":
         current_language = "英文"
@@ -69,23 +71,20 @@ def update_language():
 buttons = []
 for idx, city in enumerate(timezones):
     translated_city = translations[current_language].get(city, city)  # 获取翻译后的城市名
-    button = ttk.Button(root, text=translated_city, command=lambda c=city: change_timezone(c))
+    button = tk.Button(clock, text=translated_city, command=lambda c=city: change_timezone(c))
     button.grid(row=3, column=idx, padx=10)
     buttons.append(button)
 
 # 创建时间和日期显示标签
-time_label = ttk.Label(root, text="", font=("Helvetica", 48))
+time_label = tk.Label(clock, text="", font=("Helvetica", 48))
 time_label.grid(row=1, column=0, columnspan=len(timezones), pady=20)
 
-date_label = ttk.Label(root, text="", font=("Helvetica", 16))
+date_label = tk.Label(clock, text="", font=("Helvetica", 16))
 date_label.grid(row=2, column=0, columnspan=len(timezones))
 
-# 创建Frame来容纳"Change Language"和"Speak Time"按钮
-button_frame = tk.Frame(root)
-button_frame.grid(row=4, column=len(timezones), padx=10, pady=10, sticky='se')
 
 # 创建切换语言按钮
-language_button = ttk.Button(button_frame, text="Change Language", command=toggle_language)
+language_button = tk.Button(clock, text="Change Language", command=change_language)
 language_button.grid(row=0, column=0)
 def speak_time():
     if current_language == "Change Language":
@@ -95,17 +94,12 @@ def speak_time():
     pygame.mixer.music.load(audio_file)
     pygame.mixer.music.play()
 # 创建报时按钮
-speak_time_button = ttk.Button(button_frame, text="Speak Time", command=speak_time)
-speak_time_button.grid(row=0, column=1)
+chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese)
+chspeak_time_button.grid(row=0, column=1)
 
-# 函数：报时
-def speak_time():
-    if current_language == "Change Language":
-        audio_file = "chinese.wav"
-    else:
-        audio_file = "english.wav"
-    pygame.mixer.music.load(audio_file)
-    pygame.mixer.music.play()
+enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda: speak_english)
+enspeak_time_button.grid(row=0, column=2)
+
 
 # 函数：切换时区
 def change_timezone(city):
@@ -117,4 +111,4 @@ def change_timezone(city):
 update_time()
 
 # 主事件循环
-root.mainloop()
+clock.mainloop()
