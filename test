@@ -86,20 +86,6 @@ date_label.grid(row=2, column=0, columnspan=len(timezones))
 # 创建切换语言按钮
 language_button = tk.Button(clock, text="Change Language", command=change_language)
 language_button.grid(row=0, column=0)
-def speak_time():
-    if current_language == "Change Language":
-        audio_file = "chinese.wav"
-    else:
-        audio_file = "english.wav"
-    pygame.mixer.music.load(audio_file)
-    pygame.mixer.music.play()
-# 创建报时按钮
-chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese)
-chspeak_time_button.grid(row=0, column=1)
-
-enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda: speak_english)
-enspeak_time_button.grid(row=0, column=2)
-
 
 # 函数：切换时区
 def change_timezone(city):
@@ -109,6 +95,124 @@ def change_timezone(city):
 
 # 更新时间
 update_time()
+
+def speak_chinese(speed_rate=1):
+    # 获取当前时间
+    tz = pytz.timezone(current_timezone)
+    current_time = datetime.now(tz)
+    hour = current_time.hour
+    minute = current_time.minute
+
+    # 转换小时为12小时制
+    if hour == 0:
+        hour_str = "12"
+        am_pm = "AM"
+    elif hour < 12:
+        hour_str = str(hour)
+        am_pm = "AM"
+    elif hour == 12:
+        hour_str = "12"
+        am_pm = "PM"
+    else:
+        hour_str = str(hour - 12)
+        am_pm = "PM"
+
+    # 生成报时文本
+    time_text = f"现在是 {am_pm}{hour_str}点{minute}分"
+
+    # 播放报时
+    pygame.init()
+    pygame.mixer.init()
+
+    # 播放 it's
+    pygame.mixer.music.load(f"chinese_audio/its.mp3")
+    pygame.mixer.music.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保it's音频播放完成
+
+    # 播放 AM/PM
+    am_pm_audio = pygame.mixer.Sound(f"chinese_audio/{am_pm}.mp3")
+    am_pm_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保AM/PM音频播放完成
+
+    # 播放 hour
+    hour_audio = pygame.mixer.Sound(f"chinese_audio/hour-{hour}.mp3")
+    hour_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保hour音频播放完成
+
+    # 播放 dian
+    dian_audio = pygame.mixer.Sound(f"chinese_audio/dian.mp3")
+    dian_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保dian音频播放完成
+
+    # 播放 minute
+    minute_audio = pygame.mixer.Sound(f"chinese_audio/min-{minute}.mp3")
+    minute_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保minute音频播放完成
+    
+    pygame.quit()
+
+
+def speak_english(speed_rate=1):
+    # 获取当前时间
+    tz = pytz.timezone(current_timezone)
+    current_time = datetime.now(tz)
+    hour = current_time.hour
+    minute = current_time.minute
+
+    # 转换小时为12小时制
+    if hour == 0:
+        hour_str = "12"
+        am_pm = "AM"
+    elif hour < 12:
+        hour_str = str(hour)
+        am_pm = "AM"
+    elif hour == 12:
+        hour_str = "12"
+        am_pm = "PM"
+    else:
+        hour_str = str(hour - 12)
+        am_pm = "PM"
+
+    # 生成报时文本
+    time_text = f"It's {hour_str} {minute} {am_pm}"
+
+    # 播放报时
+    pygame.init()
+    pygame.mixer.init()
+
+    # 播放 it's
+    pygame.mixer.music.load("english_audio/its.mp3")
+    pygame.mixer.music.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保it's音频播放完成
+
+    # 播放 hour
+    hour_audio = pygame.mixer.Sound(f"english_audio/hour-{hour}.mp3")
+    hour_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保hour音频播放完成
+
+    # 播放 minute
+    minute_audio = pygame.mixer.Sound(f"english_audio/min-{minute}.mp3")
+    minute_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保minute音频播放完成
+
+    # 播放 AM/PM
+    am_pm_audio = pygame.mixer.Sound(f"english_audio/{am_pm}.mp3")
+    am_pm_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保AM/PM音频播放完成
+
+    # 等待所有声音播放完成
+    pygame.time.wait(1000)
+
+    pygame.quit()
+
+# 创建报时按钮
+chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese())
+chspeak_time_button.grid(row=0, column=1)
+
+enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda:speak_english())
+enspeak_time_button.grid(row=0, column=2)
+
+
 
 # 主事件循环
 clock.mainloop()
