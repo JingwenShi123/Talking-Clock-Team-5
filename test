@@ -46,15 +46,16 @@ translations = {
 current_timezone = "Europe/Amsterdam"  # 默认时区
 current_language = "英文"  # 默认语言设置为英文
 
-# 函数：更新时间
+
+# 函数：更新时间，包括秒
 def update_time():
     tz = pytz.timezone(current_timezone)
     localized_time = datetime.now(tz)
-    formatted_time = localized_time.strftime("%I:%M %p")
+    formatted_time = localized_time.strftime("%I:%M:%S %p")  # 添加秒数：%S
     time_label.config(text=formatted_time)
     formatted_date = localized_time.strftime("%Y-%m-%d %A")
     date_label.config(text=formatted_date)
-
+    time_label.after(1000, update_time)  # 每隔1秒调用一次update_time函数
 
 # Function to update the background image based on time
 def update_background():
@@ -123,6 +124,7 @@ def change_timezone(city):
 # 更新时间
 update_time()
 update_background()
+
 # Used to set the proper values for the speed rate slider
 play_rates = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
 
