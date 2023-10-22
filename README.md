@@ -48,16 +48,17 @@ Shenghuan Ding
 
 #### User Interface and Customization
 **1. Display Clarity**: Ensure that the numbers and text on the clock are easily legible, allowing users to effortlessly read the time.  
-**2. Display Layout**: Consider the layout of numbers and buttons for easy comprehension. Separate the display of hours, minutes, and seconds clearly. Arrange the buttons in a manner consistent with existing English web and app products, aligning with user familiarity to facilitate a quick learning curve. Adjust the buttons and various components to appropriate sizes to create a harmonious overall visual composition.  
-**3. Brightness and Contrast**: Ensure the clock's brightness and contrast are appropriate for various lighting conditions. The time display and background should exhibit contrast while maintaining an overall harmonious effect to ensure user comfort.  
-**4. Voice Control**: Ensure that synthesized voice commands are clear and maintain an average pace in line with the respective language's norms.  
-**5. User-Friendliness**: Allow language switching for buttons, organize buttons logically, and provide text or symbol. labels to ensure that clock settings and customization options are easily understood and used, preventing user confusion.  
-**6. Personalized Service**: Tailor to the preferences of late risers and those prone to forgetfulness by offering the option to "remind me again in 5 minutes," thus enhancing the user experience.  
-**7. Background Settings**: Offer different backgrounds for day and night, not only for intuitive time representation but also to adapt to the ambient lighting conditions.  
-**8. Language Settings**: Support multiple languages to ensure global users can understand and use the clock.  
-**9. Time Zone Selection**: Make it easy for users to select their desired time zone for displaying accurate local time. Ensure the clock displays the current time in real-time without noticeable delays or asynchrony.  
-**10. Date Display**: Show the local date and day of the week, helping users quickly access date information.  
-**11. Alarm Functionality**: Provide users with the ability to set alarms, allowing them to independently pause music or ringtone.  
+**2. Font Customization**: Employ a charming and rounded typeface to enhance the clock's aesthetics.  
+**3. Display Layout**: Consider the layout of numbers and buttons for easy comprehension. Separate the display of hours, minutes, and seconds clearly. Arrange the buttons in a manner consistent with existing English web and app products, aligning with user familiarity to facilitate a quick learning curve. Adjust the buttons and various components to appropriate sizes to create a harmonious overall visual composition.  
+**4. Brightness and Contrast**: Ensure the clock's brightness and contrast are appropriate for various lighting conditions. The time display and background should exhibit contrast while maintaining an overall harmonious effect to ensure user comfort.  
+**5. Voice Control**: Ensure that synthesized voice commands are clear and maintain an average pace in line with the respective language's norms.  
+**6. User-Friendliness**: Allow language switching for buttons, organize buttons logically, and provide text or symbol. labels to ensure that clock settings and customization options are easily understood and used, preventing user confusion.  
+**7. Personalized Service**: Tailor to the preferences of late risers and those prone to forgetfulness by offering the option to "remind me again in 5 minutes," thus enhancing the user experience.  
+**8. Background Settings**: Offer different backgrounds for day and night, not only for intuitive time representation but also to adapt to the ambient lighting conditions.  
+**9. Language Settings**: Support multiple languages to ensure global users can understand and use the clock.  
+**10. Time Zone Selection**: Make it easy for users to select their desired time zone for displaying accurate local time. Ensure the clock displays the current time in real-time without noticeable delays or asynchrony.  
+**11. Date Display**: Show the local date and day of the week, helping users quickly access date information.  
+**12. Alarm Functionality**: Provide users with the ability to set alarms, allowing them to independently pause music or ringtone.  
 
 ## Technical documentation and reflection
 
