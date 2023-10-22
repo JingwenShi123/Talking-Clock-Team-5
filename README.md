@@ -34,17 +34,17 @@ Shenghuan Ding
 ### Project Workflow
 
 #### Basic Clock Functionality
-*Display Current Time:*  
+**Display Current Time**  
 The clock will show the current hour, minute, and second.  
-*Date Setting:*  
+**Date Setting**  
 Display the local year, month, day, and day of the week.  
-*Language Setting:*  
+**Language Setting**  
 preferred text language and announcement language for the target user.  
-*Time Zone Setting:*  
+**Time Zone Setting**  
 Allow users to choose or set their desired time zone to ensure the clock displays the correct local time.  
-*Alarm Function:*  
+**Alarm Function**  
 Allow users to set one or more alarms to receive reminders at specific times. 
-*Background Setting:*  
+**Background Setting**  
 Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
 
 #### Audio Recording
