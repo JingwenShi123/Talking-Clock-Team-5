@@ -38,7 +38,7 @@ Shenghuan Ding
 **2. Date Setting**: Display the local year, month, day, and day of the week.  
 **3. Language Setting**: preferred text language and announcement language for the target user.  
 **4. Time Zone Setting**: Allow users to choose or set their desired time zone to ensure the clock displays the correct local time.  
-**5. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times. 
+**5. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times.  
 **6. Background Setting**: Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
 
 #### Audio Recording
