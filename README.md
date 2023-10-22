@@ -38,7 +38,7 @@ Shenghuan Ding
 **2. Date Setting**: Display the local year, month, day, and day of the week.  
 **3. Language Setting**: preferred text language and announcement language for the target user.  
 **4. Time Zone Setting**: Allow users to choose or set their desired time zone to ensure the clock displays the correct local time.  
-**5. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times.  
+**5. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times and pause them as well.  
 **6. Background Setting**: Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
 
 #### Audio Recording
@@ -46,6 +46,16 @@ Shenghuan Ding
 #### Voice Integration
 
 #### User Interface and Customization
+**1. Display Clarity**: Ensure that the numbers and text on the clock are easily legible, allowing users to effortlessly read the time.  
+**2. Display Layout**: Consider the layout of numbers and buttons for easy comprehension. Separate the display of hours, minutes, and seconds clearly. Arrange the buttons in a manner consistent with existing English web and app products, aligning with user familiarity to facilitate a quick learning curve.  
+**3. Brightness and Contrast**: Ensure the clock's brightness and contrast are appropriate for various lighting conditions. The time display and background should exhibit contrast while maintaining an overall harmonious effect to ensure user comfort.  
+**4. Voice Control**: Ensure that synthesized voice commands are clear and maintain an average pace in line with the respective language's norms.  
+**5. User-Friendliness**: Allow language switching for buttons, organize buttons logically, and provide text or symbol labels to ensure that clock settings and customization options are easily understood and used, preventing user confusion.  
+**6. Background Settings**: Offer different backgrounds for day and night, not only for intuitive time representation but also to adapt to the ambient lighting conditions.  
+**7. Language Settings**: Support multiple languages to ensure global users can understand and use the clock.  
+**8. Time Zone Selection**: Make it easy for users to select their desired time zone for displaying accurate local time. Ensure the clock displays the current time in real-time without noticeable delays or asynchrony.  
+**9. Date Display**: Show the local date and day of the week, helping users quickly access date information.  
+**10. Alarm Functionality**: Provide users with the ability to set alarms, allowing them to independently pause music or ringtone.  
 
 ## Technical documentation and reflection
 
@@ -73,7 +83,7 @@ This Clock operates on a twelve-hour system
 Date changes with time zones and attached with Monday - Sunday
 
 **Alarm**  
-The clock icon can be clicked to set an alarm. Clicking the button will bring up an interactive window with two sliders to set the reminder time, and the alarm will play music when it's time.
+The clock icon can be clicked to set an alarm. Clicking the button will bring up an interactive window with two sliders to set the reminder time, and the alarm will play music when it's time. Also, clicking the "Stop" buttom would pause the music as you will.
 
 **Daytime & Nighttime**  
 The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.
