@@ -48,9 +48,9 @@ Run `python main.py` in the terminal. Make sure to be in the same directory wher
 the repository is installed in the terminal. It will open an interactive GUI with which
 you can interact with.
 
-**Language Switch**
-Written Language:
-Time-telling Language:
+**Language Switch**  
+Written Language:Click the "EN-中" button in the top left corner to switch the text language.  
+Time-telling Language: Choose either of the time-telling buttom as your prefrred language.  
 
 **Timezone Slection**
 1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.  
