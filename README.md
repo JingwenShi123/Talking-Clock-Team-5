@@ -51,9 +51,12 @@ you can interact with.
 **Language Switch**  
 Written Language: Click the "EN-中" button in the top left corner to switch the text language.  
 Time-telling Language: Choose either of the time-telling buttom as your prefrred language.  
+We will display hours, minutes, and seconds, but when announcing verbally, we won't mention the seconds.
 
 **Timezone Slection**  
 This Clock operates on a twelve-hour system  
+"AM" - "ante meridiem" 
+"PM" -"post meridiem"  
 1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.  
 2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.  
 3. New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.  
@@ -63,8 +66,8 @@ This Clock operates on a twelve-hour system
 **Date:yy-mm-dd**  
 Date changes with time zones and attached with Monday - Sunday
 
-**Alarm** 
-
+**Alarm**  
+The clock icon can be clicked to set an alarm. Clicking the button will bring up an interactive window with two sliders to set the reminder time, and the alarm will play music when it's time.
 
 **Daytime & Nighttime**  
 The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.
