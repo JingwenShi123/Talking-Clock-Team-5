@@ -70,7 +70,7 @@ you can interact with.
 **Language Switch**  
 Written Language: Click the "EN-中" button in the top left corner to switch the text language.  
 Time-telling Language: Choose either of the time-telling buttom as your prefrred language.  
-*What time is it*  /  *现在几点了*
+For Example: EN-*What time is it*  /  中-*现在几点了*  
 We will display hours, minutes, and seconds, but when announcing verbally, we won't mention the seconds.
 
 **Timezone Slection**  
