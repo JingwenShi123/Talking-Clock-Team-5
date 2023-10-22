@@ -4,6 +4,8 @@ from PIL import Image, ImageTk
 from datetime import datetime
 import pytz
 import pygame
+import time
+
 
 # 初始化pygame
 pygame.mixer.init()
@@ -18,6 +20,8 @@ clock.geometry(f"{window_width}x{window_height}")
 
 image = Image.open("tran.png")  
 image = ImageTk.PhotoImage(image)
+alarm_image=Image.open("alarm_image.png")
+alarm_image=ImageTk.PhotoImage(alarm_image)
 
 # 时区字典
 timezones = {
@@ -128,25 +132,7 @@ language_button.grid(row=0, column=0)
 update_time()
 
 
-# Used to set the proper values for the speed rate slider
-play_rates = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
-
-def slider_func(val):
-    new_val = min(play_rates, key=lambda x: abs(x - float(SpeedRate.get())))
-    SpeedRate.set(new_val)
-
-
-# The speech rate slider
-SpeedRate = tk.Scale(clock, from_=0.5, to=2, command=slider_func, orient="horizontal", digits=3, resolution=0.25)
-SpeedRate.set(1)
-SpeedRate.place(x=700,y=50)
-SpeedRate.configure(label='Change the speed rate', troughcolor='black',
-                    length=246)
-
-
-
-
-def speak_chinese(speed_rate=1):
+def speak_chinese():
     # 获取当前时间
     tz = pytz.timezone(current_timezone)
     current_time = datetime.now(tz)
@@ -202,7 +188,7 @@ def speak_chinese(speed_rate=1):
     pygame.quit()
 
 
-def speak_english(speed_rate=1):
+def speak_english():
     # 获取当前时间
     tz = pytz.timezone(current_timezone)
     current_time = datetime.now(tz)
@@ -256,13 +242,31 @@ def speak_english(speed_rate=1):
     pygame.quit()
 
 # 创建报时按钮
-chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese(SpeedRate.get()))
+chspeak_time_button = tk.Button(clock, text="中文报时", command=lambda: speak_chinese())
 chspeak_time_button.grid(row=0, column=1)
 
-enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda:speak_english(SpeedRate.get()))
+enspeak_time_button = tk.Button(clock, text="Speak Time", command=lambda:speak_english())
 enspeak_time_button.grid(row=0, column=2)
 
+def open_alarm_window():
+    alarm = tk.Toplevel(clock)  
+    alarm.title("Alarm")
+    # 创建输入框和按钮
+    alarm_label = tk.Label(alarm, text="设置闹钟时间（HH:MM）:")
+    alarm_label.pack()
 
+    alarm_entry = tk.Entry(alarm)
+    alarm_entry.pack()
+
+    set_alarm_button = tk.Button(alarm, text="设置闹钟")
+    set_alarm_button.pack()
+
+    alarm_status = tk.Label(alarm, text="")
+    alarm_status.pack()
+
+
+alarm_button=tk.Button(clock,image=alarm_image,command=open_alarm_window)
+alarm_button.place(x=900,y=500)
 
 # 主事件循环
 clock.mainloop()
