@@ -52,7 +52,7 @@ you can interact with.
 Written Language: Click the "EN-中" button in the top left corner to switch the text language.  
 Time-telling Language: Choose either of the time-telling buttom as your prefrred language.  
 
-**Timezone Slection**
+**Timezone Slection**  
 This Clock operates on a twelve-hour system  
 1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.  
 2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.  
@@ -60,7 +60,15 @@ This Clock operates on a twelve-hour system
 4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.  
 5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.  
 
-**Date**
+**Date:yy-mm-dd**  
+Date changes with time zones and attached with Monday - Sunday
+
+**Alarm** 
+
+
+**Daytime & Nighttime**  
+The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.
+
 
 ##  Licensing and FAIR Data Principles
 The audio files used were generated using TTS APIs.
