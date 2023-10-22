@@ -24,7 +24,6 @@ to where you extracted the zip via the terminal.
 
 ## Team Organization and Workflow
 ### Team organization
-Group Members:  
 Shenghuan Ding  
 Yining Lei  
 Lifan Qu  
