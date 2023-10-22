@@ -23,13 +23,13 @@ to where you extracted the zip via the terminal.
 4. Run `pip install -r requirements.txt` to install the dependencies required.
 
 ## Team Organization and Workflow
-### Team organization
-Shenghuan Ding  
-Yining Lei  
-Lifan Qu  
-Jingwen Shi  
+### Team organization 
+Jingwen Shi 
+Lifan Qu   
+Yining Lei
 Yilan Wei  
 Siqi Zheng  
+Shenghuan Ding
 
 ### Project Workflow
 
