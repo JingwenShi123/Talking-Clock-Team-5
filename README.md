@@ -24,12 +24,12 @@ to where you extracted the zip via the terminal.
 
 ## Team Organization and Workflow
 ### Team organization 
-Jingwen Shi 
+Jingwen Shi  
 Lifan Qu   
-Yining Lei
+Yining Lei  
 Yilan Wei  
 Siqi Zheng  
-Shenghuan Ding
+Shenghuan Ding  
 
 ### Project Workflow
 
