@@ -63,7 +63,7 @@ This Clock operates on a twelve-hour system
 4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.  
 5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.  
 
-**Date:yy-mm-dd**  
+**Date: yy-mm-dd**  
 Date changes with time zones and attached with Monday - Sunday
 
 **Alarm**  
