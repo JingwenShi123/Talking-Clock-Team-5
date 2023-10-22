@@ -10,7 +10,7 @@ https://www.python.org/downloads/
 
 ## Installation Instructions
 
-<b>\### STEPS TO RUN AND INSTALL HAVE BEEN TESTED USING WINDOWS. THERE MAY BE ISSUES OCCURRING FOR LINUX AND MACOS, SO BE ADVISED! ###</b>
+<b>\### STEPS TO RUN AND INSTALL HAVE BEEN TESTED USING WINDOWS AND MACOS. THERE MAY BE ISSUES OCCURRING FOR LINUX, SO BE ADVISED! ###</b>
 
 1. Click on the green `Code` button at the top of the repository > `Download ZIP`.
 2. Extract the ZIP to the location where you want to install it on your computer.
@@ -49,8 +49,15 @@ the repository is installed in the terminal. It will open an interactive GUI wit
 you can interact with.
 
 **Language Switch**
+Written Language:
+Time-telling Language:
 
-
+**Timezone Slection**
+1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.  
+2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.  
+3. New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.  
+4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.  
+5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.  
 
 ##  Licensing and FAIR Data Principles
 The audio files used were generated using TTS APIs.
