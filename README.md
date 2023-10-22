@@ -8,7 +8,7 @@ MSc at RUG - Campus Fryslan.
 ## Requirements before installing
 Make sure you have `Python 3.9` installed. Download the latest 3.9 version from here: https://www.python.org/downloads/
 
-## Installation
+## Installation Instructions
 
 <b>\### STEPS TO RUN AND INSTALL HAVE BEEN TESTED USING WINDOWS. THERE MAY BE ISSUES OCCURRING FOR LINUX AND MACOS, SO BE ADVISED! ###</b>
 
@@ -22,7 +22,7 @@ the steps above can be skipped)
 to where you extracted the zip via the terminal.
 4. Run `pip install -r requirements.txt` to install the dependencies required.
 
-## Usage
+## User Manual
 Run `python main.py` in the terminal. Make sure to be in the same directory where
 the repository is installed in the terminal. It will open an interactive GUI with which
 you can interact with.
@@ -33,3 +33,8 @@ people say "Cât e(ste) ceasul?" to ask about the current time.
 
 The slider at the bottom adjusts the speed at which the time is said. A setting of
 `1.5` will tell the time 1.5x faster than the default speech rate.
+
+## GDPR Compliance
+The audio files used were generated using TTS APIs.
+
+No consent forms were required for the collection of this data since there were no individuals recorded by us to generate this speech. The data used for the speaking clock therefore complies with GDPR regulations.
