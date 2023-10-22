@@ -1,4 +1,4 @@
-#Talking-Clock-Team-5
+# Talking-Clock-Team-5
 
 ## Project description
 This is the speaking/talking clock that we developed in Python 3.9 for an
