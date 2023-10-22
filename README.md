@@ -88,7 +88,7 @@ Date changes with time zones and attached with Monday - Sunday
 **Alarm**  
 The clock icon can be clicked to set an alarm. Clicking the button will bring up an interactive window with two sliders to set the reminder time, and the alarm will play music when it's time. Also, clicking the "Stop" buttom would pause the music as you will.
 
-**Snooze**
+**Snooze**  
 If you wish to "snooze for 5 minutes," simply press the "Snooze" button, and the system will automatically set an alarm to gently awaken you again in 5 minutes, providing you with a delightful morning experience.
 
 **Daytime & Nighttime**  
