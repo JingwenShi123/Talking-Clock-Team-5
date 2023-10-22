@@ -1,12 +1,12 @@
 # Talking-Clock-Team-5
 
 ## Project description
-This is the speaking/talking clock that we developed in Python 3.9 for an
-assignment for the course "Introduction to Voice Technology" & "Programming" as part of the Voice Technology
-MSc at RUG - Campus Fryslan.
+This is an interactive speaking/talking clock that we developed in Python 3.9 for an assignment for the course "Introduction to Voice Technology" & "Programming" as part of the Voice Technology MSc at RUG - Campus Fryslan.
 
 ## Requirements before installing
-Make sure you have `Python 3.9` installed. Download the latest 3.9 version from here: https://www.python.org/downloads/
+Make sure you have `Python 3` installed.  
+If not, please download the latest 3.12.0 version from here:  
+https://www.python.org/downloads/
 
 ## Installation Instructions
 
@@ -48,12 +48,9 @@ Run `python main.py` in the terminal. Make sure to be in the same directory wher
 the repository is installed in the terminal. It will open an interactive GUI with which
 you can interact with.
 
-Each button will tell the current time in a different language. The text on each 
-button says "What's the time?" in the language it will speak. For example, in Romania
-people say "Cât e(ste) ceasul?" to ask about the current time.
+**Language Switch**
 
-The slider at the bottom adjusts the speed at which the time is said. A setting of
-`1.5` will tell the time 1.5x faster than the default speech rate.
+
 
 ##  Licensing and FAIR Data Principles
 The audio files used were generated using TTS APIs.
