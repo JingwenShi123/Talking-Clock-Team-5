@@ -49,15 +49,18 @@ the repository is installed in the terminal. It will open an interactive GUI wit
 you can interact with.
 
 **Language Switch**  
-Written Language:Click the "EN-中" button in the top left corner to switch the text language.  
+Written Language: Click the "EN-中" button in the top left corner to switch the text language.  
 Time-telling Language: Choose either of the time-telling buttom as your prefrred language.  
 
 **Timezone Slection**
+This Clock operates on a twelve-hour system  
 1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.  
 2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.  
 3. New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.  
 4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.  
 5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.  
+
+**Date**
 
 ##  Licensing and FAIR Data Principles
 The audio files used were generated using TTS APIs.
