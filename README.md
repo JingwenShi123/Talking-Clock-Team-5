@@ -22,6 +22,27 @@ the steps above can be skipped)
 to where you extracted the zip via the terminal.
 4. Run `pip install -r requirements.txt` to install the dependencies required.
 
+## Team Organization and Workflow
+### Team organization
+Group Members: Shenghuan Ding
+               Yining Lei
+               Lifan Qu
+               Jingwen Shi
+               Yilan Wei
+               Siqi Zheng
+
+### Project Workflow
+
+#### Basic Clock Functionality
+
+#### Audio Recording
+
+#### Voice Integration
+
+#### User Interface and Customization
+
+## Technical documentation and reflection
+
 ## User Manual
 Run `python main.py` in the terminal. Make sure to be in the same directory where
 the repository is installed in the terminal. It will open an interactive GUI with which
@@ -34,7 +55,7 @@ people say "Cât e(ste) ceasul?" to ask about the current time.
 The slider at the bottom adjusts the speed at which the time is said. A setting of
 `1.5` will tell the time 1.5x faster than the default speech rate.
 
-## GDPR Compliance
+##  Licensing and FAIR Data Principles
 The audio files used were generated using TTS APIs.
 
 No consent forms were required for the collection of this data since there were no individuals recorded by us to generate this speech. The data used for the speaking clock therefore complies with GDPR regulations.
