@@ -1,60 +1,35 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{titletoc}
-\usepackage{tocloft}
+#Talking-Clock-Team-5
 
-\renewcommand{\contentsname}{\hfil\bfseries Contents\hfill}
+## Project description
+This is the speaking/talking clock that we developed in Python 3.9 for an
+assignment for the course "Introduction to Voice Technology" & "Programming" as part of the Voice Technology
+MSc at RUG - Campus Fryslan.
 
-\titlecontents{section}
-[0pt]
-{\addvspace{1em}}
-{\contentslabel{1.5em}}
-{}
-{\titlerule*[0.5pc]{.}\contentspage}
+## Requirements before installing
+Make sure you have `Python 3.9` installed. Download the latest 3.9 version from here: https://www.python.org/downloads/
 
-% 自定义章节项的间距
-\setlength{\cftbeforesecskip}{12pt}
+## Installation
 
-% 自定义章节项标签的宽度
-\setlength{\cftsecnumwidth}{2.5em}
+<b>\### STEPS TO RUN AND INSTALL HAVE BEEN TESTED USING WINDOWS. THERE MAY BE ISSUES OCCURRING FOR LINUX AND MACOS, SO BE ADVISED! ###</b>
 
-\title{Talking-Clock-Team-5}
-\author{Jingwen Shi}
-\date{October 2023}
+1. Click on the green `Code` button at the top of the repository > `Download ZIP`.
+2. Extract the ZIP to the location where you want to install it on your computer.
 
-\begin{document}
+(You can also just clone the repository locally if you are familiar with Git. In that case,
+the steps above can be skipped)
 
-\maketitle
+3. Open the terminal (or command prompt, depending on the OS you use) and navigate
+to where you extracted the zip via the terminal.
+4. Run `pip install -r requirements.txt` to install the dependencies required.
 
-\tableofcontents
+## Usage
+Run `python main.py` in the terminal. Make sure to be in the same directory where
+the repository is installed in the terminal. It will open an interactive GUI with which
+you can interact with.
 
-\section{Project Description}
+Each button will tell the current time in a different language. The text on each 
+button says "What's the time?" in the language it will speak. For example, in Romania
+people say "Cât e(ste) ceasul?" to ask about the current time.
 
-
-\section{Installation Instructions}
-
-
-\section{Team Organization and Workflow}
-
-
-\subsection{Team Organization}
-
-
-\subsection{Project Workflow}
-\subsubsection{Basic Clock Functionality}
-\subsubsection{Audio Recording}
-\subsubsection{Voice Integration}
-\subsubsection{User Interface and Customization}
-\subsubsection{Documentation}
-
-
-\section{Technical documentation and reflection}
-
-
-\section{User Manual}
-
-
-\section{Licensing and FAIR Data Principles}
-
-
-\end{document}
+The slider at the bottom adjusts the speed at which the time is said. A setting of
+`1.5` will tell the time 1.5x faster than the default speech rate.
