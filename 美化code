@@ -1,0 +1,256 @@
+import tkinter as tk
+from tkinter import PhotoImage
+from PIL import Image, ImageTk
+from datetime import datetime
+import pytz
+import pygame
+import time
+
+
+# 初始化pygame
+pygame.mixer.init()
+
+# 创建主窗口
+clock = tk.Tk()
+clock.title("Talking Clock")
+window_width = 1000  
+window_height = 700  
+clock.geometry(f"{window_width}x{window_height}")
+
+
+image = Image.open("tran.png")  
+image = ImageTk.PhotoImage(image)
+alarm_image=Image.open("alarm_image.png")
+alarm_image=ImageTk.PhotoImage(alarm_image)
+
+def speak_chinese():
+    # 获取当前时间
+    tz = pytz.timezone(current_timezone)
+    current_time = datetime.now(tz)
+    hour = current_time.hour
+    minute = current_time.minute
+
+    # 转换小时为12小时制
+    if hour == 0:
+        hour_str = "12"
+        am_pm = "AM"
+    elif hour < 12:
+        hour_str = str(hour)
+        am_pm = "AM"
+    elif hour == 12:
+        hour_str = "12"
+        am_pm = "PM"
+    else:
+        hour_str = str(hour - 12)
+        am_pm = "PM"
+
+    # 生成报时文本
+    time_text = f"现在是 {am_pm}{hour_str}点{minute}分"
+
+    # 播放报时
+    pygame.init()
+    pygame.mixer.init()
+
+    # 播放 it's
+    pygame.mixer.music.load(f"chinese_audio/its.mp3")
+    pygame.mixer.music.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保it's音频播放完成
+
+    # 播放 AM/PM
+    am_pm_audio = pygame.mixer.Sound(f"chinese_audio/{am_pm}.mp3")
+    am_pm_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保AM/PM音频播放完成
+
+    # 播放 hour
+    hour_audio = pygame.mixer.Sound(f"chinese_audio/hour-{hour}.mp3")
+    hour_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保hour音频播放完成
+
+    # 播放 dian
+    dian_audio = pygame.mixer.Sound(f"chinese_audio/dian.mp3")
+    dian_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保dian音频播放完成
+
+    # 播放 minute
+    minute_audio = pygame.mixer.Sound(f"chinese_audio/min-{minute}.mp3")
+    minute_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保minute音频播放完成
+    
+    pygame.quit()
+
+
+def speak_english():
+    # 获取当前时间
+    tz = pytz.timezone(current_timezone)
+    current_time = datetime.now(tz)
+    hour = current_time.hour
+    minute = current_time.minute
+
+    # 转换小时为12小时制
+    if hour == 0:
+        hour_str = "12"
+        am_pm = "AM"
+    elif hour < 12:
+        hour_str = str(hour)
+        am_pm = "AM"
+    elif hour == 12:
+        hour_str = "12"
+        am_pm = "PM"
+    else:
+        hour_str = str(hour - 12)
+        am_pm = "PM"
+
+    # 生成报时文本
+    time_text = f"It's {hour_str} {minute} {am_pm}"
+
+    # 播放报时
+    pygame.init()
+    pygame.mixer.init()
+
+    # 播放 it's
+    pygame.mixer.music.load("english_audio/its.mp3")
+    pygame.mixer.music.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保it's音频播放完成
+
+    # 播放 hour
+    hour_audio = pygame.mixer.Sound(f"english_audio/hour-{hour}.mp3")
+    hour_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保hour音频播放完成
+
+    # 播放 minute
+    minute_audio = pygame.mixer.Sound(f"english_audio/min-{minute}.mp3")
+    minute_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保minute音频播放完成
+
+    # 播放 AM/PM
+    am_pm_audio = pygame.mixer.Sound(f"english_audio/{am_pm}.mp3")
+    am_pm_audio.play()
+    pygame.time.delay(1000)  # 等待1秒，以确保AM/PM音频播放完成
+
+    # 等待所有声音播放完成
+    pygame.time.wait(1000)
+
+    pygame.quit()
+
+# 函数：切换语言
+def change_language():
+    global current_language
+    if current_language == "中文":
+        current_language = "英文"
+    else:
+        current_language = "中文"
+    update_language()  # 更新按钮上的文字
+
+def update_language():
+    # 更新所有按钮的文本
+    for button in buttons:
+        translated_text = translations[current_language].get(button["text"], button["text"])
+        button.config(text=translated_text)
+
+# 创建一个 Frame 用于放置按钮
+button_frame = tk.Frame(clock)
+button_frame.pack(padx=10, pady=10, side=tk.TOP, fill=tk.X) 
+
+# 创建三个按钮（切换语言，中文英文报时）并放置在 button_frame 中
+language_button = tk.Button(button_frame, image=image, command=change_language)
+chspeak_time_button = tk.Button(button_frame, text="现在几点了", font=("Ayuthaya", 20), command=lambda: speak_chinese())
+enspeak_time_button = tk.Button(button_frame, text="What time is it?", font=("Ayuthaya", 20), command=lambda:speak_english())
+
+# 使用 pack 布局管理器排列按钮横向，设置间隔为10
+chspeak_time_button.pack(side=tk.RIGHT, padx=10)
+enspeak_time_button.pack(side=tk.RIGHT, padx=10)
+language_button.pack(side=tk.LEFT, padx=10) 
+
+# 时区字典
+timezones = {
+    "东京": "Asia/Tokyo",
+    "上海": "Asia/Shanghai",
+    "纽约": "America/New_York",
+    "阿姆斯特丹": "Europe/Amsterdam",
+    "伦敦": "Europe/London",
+}
+
+# 翻译字典
+translations = {
+    "中文": {
+        "Shanghai": "上海",
+        "New York": "纽约",
+        "Tokyo": "东京",
+        "Amsterdam": "阿姆斯特丹",
+        "London": "伦敦"
+    },
+    "英文": {
+        "上海": "Shanghai",
+        "纽约": "New York",
+        "东京": "Tokyo",
+        "阿姆斯特丹": "Amsterdam",
+        "伦敦": "London"
+    }
+}
+
+current_timezone = "Europe/Amsterdam"  # 默认时区
+current_language = "英文"  # 默认语言设置为英文
+
+
+# 函数：更新时间，包括秒
+def update_time():
+    tz = pytz.timezone(current_timezone)
+    localized_time = datetime.now(tz)
+    formatted_time = localized_time.strftime("%I:%M:%S %p")  # 添加秒数：%S
+    time_label.config(text=formatted_time)
+    formatted_date = localized_time.strftime("%Y-%m-%d %A")
+    date_label.config(text=formatted_date)
+    time_label.after(1000, update_time)  # 每隔1秒调用一次update_time函数
+# 函数：切换时区
+def change_timezone(city):
+    global current_timezone
+    current_timezone = timezones[city]
+    update_time()
+    update_background()
+
+
+# 创建一个 Frame 用于放置时区按钮
+button_container = tk.Frame(clock)
+button_container.pack(side=tk.BOTTOM, fill=tk.X)  # 放在窗口的底部，横向填充
+
+# 创建五个按钮并放置在 button_container 中
+buttons = []
+for idx, city in enumerate(timezones):
+    translated_city = translations[current_language].get(city, city)
+    button = tk.Button(button_container, text=translated_city, font=("Ayuthaya", 20), command=lambda c=city: change_timezone(c))
+    button.pack(side="left", padx=30)
+    buttons.append(button)
+
+
+# 创建时间和日期显示标签
+time_label = tk.Label(clock, text="", font=("Ayuthaya",90))
+time_label.pack(fill=tk.BOTH, expand=True)
+
+date_label = tk.Label(clock, text="", font=("Ayuthaya", 20))
+date_label.pack(side=tk.TOP, fill=tk.X, expand=True)
+
+# 更新时间
+update_time()
+
+def open_alarm_window():
+    alarm = tk.Toplevel(clock)  
+    alarm.title("Alarm")
+    # 创建输入框和按钮
+    alarm_label = tk.Label(alarm, text="设置闹钟时间（HH:MM）:")
+    alarm_label.pack()
+
+    alarm_entry = tk.Entry(alarm)
+    alarm_entry.pack()
+
+    set_alarm_button = tk.Button(alarm, text="设置闹钟")
+    set_alarm_button.pack()
+
+    alarm_status = tk.Label(alarm, text="")
+    alarm_status.pack()
+
+
+alarm_button=tk.Button(clock,image=alarm_image,command=open_alarm_window)
+alarm_button.place(x=900,y=500)
+
+# 主事件循环
+clock.mainloop()
