@@ -100,6 +100,18 @@ The images daytime and nighttime are setted as background. The two models switch
 
 
 ##  Licensing and FAIR Data Principles
-The audio files used were generated using TTS APIs.
+The significance of Licensing and adherence to the FAIR data principles in our project is paramount in ensuring the creation of a reliable, inclusive, and ethically responsible tool. Our bilingual time-announcing clock is committed to upholding these principles.
 
-No consent forms were required for the collection of this data since there were no individuals recorded by us to generate this speech. The data used for the speaking clock therefore complies with GDPR regulations.
+**1. Significance of Licensing and FAIR Data Principle**: Licensing and FAIR data principles hold profound importance. Licensing ensures that our tool is legally and ethically sound, contributing to its trustworthiness and credibility. FAIR principles—Findable, Accessible, Interoperable, and Reusable—ensure that our data and technology are accessible to all, fostering inclusivity and data integrity.
+
+**2. Adherence to FAIR Data Principles**:  
+   - *Findable*: Our clock's dual-language time-announcing functionality enhances its discoverability, catering to a broad, global audience.
+   - *Accessible*: We prioritize ease of use, ensuring our tool is accessible to individuals of varying technological proficiency.
+   - *Interoperable*: Designed to cater to diverse time zones, our project fosters interoperability, delivering precise time data for a global user base.
+   - *Reusable*: The core functionality of our bilingual time-announcing clock is versatile, allowing it to be reused across diverse applications and platforms.
+
+**3. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.
+
+**4. Google Text-to-Speech**: Our use of Google Text-to-Speech technology eliminates authorization concerns, allowing users to benefit from accurate time announcements without the burden of complex authorizations.
+
+In summary, our bilingual time-announcing clock represents a trustworthy and inclusive tool, aligning with the ethical standards of data management, licensing, and accessibility. It underscores our commitment to providing reliable timekeeping while respecting user privacy and regulatory compliance.
