@@ -42,9 +42,12 @@ Shenghuan Ding
 **6. Snooze**: Allow users to "snooze for 5 minutes" by clicking a button that automatically sets an alarm for 5 minutes later.  
 **7. Background Automation**: Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
 
-#### Audio Recording
-
 #### Voice Integration
+**1. Text Preparation**: Begin by structuring the text for both languages. In Chinese, it should be in the format: “现在是” + “上午/下午” + the hour + “点” + the minute. For English, structure it as: “It’s” + the hour + the minute + “AM/PM”.  
+**2. File Naming**: Associate each text with a relevant file name for the generated audio.  
+**3. Text-to-Speech Conversion**: Utilize Google Text-to-Speech (TTS) to convert the prepared text into audio, ensuring that the correct language and accent settings are in place for each language.  
+**4. File Output**: Save the resulting audio as MP3 files with meaningful file names, ideally organized in a well-structured directory.  
+**5. Modular Implementation**: Integrate this process into a modular component within your program, allowing easy and seamless time announcements in either language.”  
 
 #### User Interface and Customization
 **1. Display Clarity**: Ensure that the numbers and text on the clock are easily legible, allowing users to effortlessly read the time.  
