@@ -201,30 +201,34 @@ def open_alarm_window():
     # 计算闹钟窗口在主窗口中的位置坐标
     x = (main_window_width - alarm_width) // 2
     y = (main_window_height - alarm_height) // 2
-
+    #创建frame
+    button_frame=tk.Frame(alarm)
+    button_frame.pack(side="bottom")
+    slider_frame=tk.Frame(alarm)
+    slider_frame.pack(side="top", expand=window_width//2)
     # 设置闹钟窗口的位置
     alarm.geometry(f"400x400+{x}+{y}")
     
     # 创建用于设置小时的滑块
     translated_hour=tran_hour_label.get(current_language)
-    hour_label = tk.Label(alarm, font=("Comic Sans MS", 16), text=translated_hour) 
-    hour_label.pack()
-    hour_slider = tk.Scale(alarm, from_=0, to=23, orient="vertical")
-    hour_slider.pack()
+    hour_label = tk.Label(slider_frame, font=("Comic Sans MS", 16), text=translated_hour) 
+    hour_label.pack(side="left")
+    hour_slider = tk.Scale(slider_frame, from_=0, to=23, length=200, orient="vertical")
+    hour_slider.pack(side="left")
 
     # 创建用于设置分钟的滑块
     translated_minute=tran_minute_label.get(current_language)
-    minute_label = tk.Label(alarm, font=("Comic Sans MS", 16), text=translated_minute)
-    minute_label.pack()
-    minute_slider = tk.Scale(alarm, from_=0, to=59, orient="vertical")
-    minute_slider.pack()
+    minute_label = tk.Label(slider_frame, font=("Comic Sans MS", 16), text=translated_minute)
+    minute_label.pack(side="right")
+    minute_slider = tk.Scale (slider_frame, from_=0, to=59, length=200, orient="vertical")
+    minute_slider.pack(side="right")
 
     translated_set_alarm=tran_set_alarm_button.get(current_language)
-    set_alarm_button = tk.Button(alarm, text=translated_set_alarm, font=("Comic Sans MS", 16), command=lambda: (set_alarm(),check_alarm()))
-    set_alarm_button.pack()
+    set_alarm_button = tk.Button(button_frame, text=translated_set_alarm, font=("Comic Sans MS", 16), command=lambda: (set_alarm(),check_alarm()))
+    set_alarm_button.pack(side="top",pady=10)
     
-    alarm_status = tk.Label(alarm, text="")
-    alarm_status.pack()
+    alarm_status = tk.Label(button_frame, text="")
+    alarm_status.pack(side="bottom",pady=10)
 
     
 
@@ -267,11 +271,12 @@ def open_alarm_window():
     def stop_alarm():
         global alarm_triggered
         alarm_triggered = False
+        pygame.time.delay(1000) 
         pygame.mixer.music.stop()
 
     tran_stop=tran_stop_button.get(current_language)
-    stop_button = tk.Button(alarm, text=tran_stop, font=("Comic Sans MS", 16), command=stop_alarm)
-    stop_button.pack() 
+    stop_button = tk.Button(button_frame, text=tran_stop, font=("Comic Sans MS", 16), command=stop_alarm)
+    stop_button.pack(side="left",padx=10,pady=10) 
 
     def snooze_alarm():
         global alarm_triggered
@@ -279,8 +284,8 @@ def open_alarm_window():
         stop_alarm()
         alarm.after(300000, play_alarm)  # 10分钟后再次触发闹钟
     tran_snooze=tran_snooze_alarm.get(current_language)
-    snooze_button=tk.Button(alarm, text=tran_snooze, font=("Comic Sans MS", 16), command=snooze_alarm)
-    snooze_button.pack()
+    snooze_button=tk.Button(button_frame, text=tran_snooze, font=("Comic Sans MS", 16), command=snooze_alarm)
+    snooze_button.pack(side="left",padx=10,pady=10)
 # 创建一个按钮，用于激活 open_alarm_window() 函数以打开闹钟窗口
 alarm_button = tk.Button(clock, image=alarm_image, command=open_alarm_window)
 alarm_button.grid(row=0,column=1)
