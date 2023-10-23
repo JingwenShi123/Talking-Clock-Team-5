@@ -95,7 +95,7 @@ The clock icon can be clicked to set an alarm. Clicking the button will bring up
 **Snooze**  
 If you wish to "snooze for 5 minutes," simply press the "Snooze" button, and the system will automatically set an alarm to gently awaken you again in 5 minutes, providing you with a delightful morning experience.
 
-**Daytime & Nighttime**  
+**Daytime & Nighttime Indication**  
 The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.
 
 
