@@ -66,7 +66,14 @@ Shenghuan Ding
 **13. Music**: We altered different musics to find the best one for the alarm, not only serving as a reminder but also provide a delightful wake-up (reminder) service, pleasing to the ear for customers.  
 
 ## Technical documentation and reflection
+### Code
 
+### Audio Recording
+**1. Speech Rate**: Maintain a roughly consistent pace for each individual word, particularly with numbers, to avoid variations in speed that can result in unclear English voice time announcements.  
+
+**2. WAV Segment Duration**: When extracting audio using Praat software, endeavor to make the audio length of each number approximately equal. This helps prevent situations where the minute announcement hasn't been completed yet, while the hour announcement has already begun.  
+
+**3. Utilizing Appropriate Waiting Durations**: Only when audio durations are approximately equivalent can we determine suitable waiting periods between two audio segments. On this foundation, constant adjustments are made to achieve the most appropriate interval duration. Too short of a pause can lead to unclear time announcements, while overly lengthy pauses can reduce efficiency and make the announcements sound less like artificial intelligence-generated responses.  
 
 ## User Manual
 Run `python main.py` in the terminal. Make sure to be in the same directory where
@@ -107,14 +114,17 @@ The significance of Licensing and adherence to the FAIR data principles in our p
 
 **1. Significance of Licensing and FAIR Data Principle**: Licensing and FAIR data principles hold profound importance. Licensing ensures that our tool is legally and ethically sound, contributing to its trustworthiness and credibility. FAIR principles—Findable, Accessible, Interoperable, and Reusable—ensure that our data and technology are accessible to all, fostering inclusivity and data integrity.
 
-**2. Adherence to FAIR Data Principles**:  
+**2. Google Text-to-Speech**: In the context of Chinese voice time announcements, we employ speech synthesis technology, utilizing Google to generate synthetic voices, which allows us to use these voices directly without the need for authorization.
+
+**3. Audio Recording**: In the context of English voice time announcements, we utilize the voice of our team member, J. Shi, with her explicit authorization. Therefore, our process aligns with the FAIR and GDPR principles, ensuring compliance and ethical handling of data and personal information.
+
+**4. Adherence to FAIR Data Principles**:  
    - *Findable*: Our clock's dual-language time-announcing functionality enhances its discoverability, catering to a broad, global audience.
    - *Accessible*: We prioritize ease of use, ensuring our tool is accessible to individuals of varying technological proficiency.
    - *Interoperable*: Designed to cater to diverse time zones, our project fosters interoperability, delivering precise time data for a global user base.
    - *Reusable*: The core functionality of our bilingual time-announcing clock is versatile, allowing it to be reused across diverse applications and platforms.
 
-**3. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.
+**5. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.
 
-**4. Google Text-to-Speech**: Our use of Google Text-to-Speech technology eliminates authorization concerns, allowing users to benefit from accurate time announcements without the burden of complex authorizations.
 
-In summary, our bilingual time-announcing clock represents a trustworthy and inclusive tool, aligning with the ethical standards of data management, licensing, and accessibility. It underscores our commitment to providing reliable timekeeping while respecting user privacy and regulatory compliance.
+In summary, our bilingual time-announcing clock represents a trustworthy and inclusive tool, aligning with the ethical standards of data management, licensing, and accessibility.
