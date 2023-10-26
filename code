@@ -220,10 +220,11 @@ def speak_chinese():
 def speak_english():
     # 获取当前时间
     tz = pytz.timezone(current_timezone)
-    current_time = datetime.now(tz)
-    hour = current_time.hour
-    minute = current_time.minute
-    # 播放 it's
+    localized_time = datetime.now(tz)
+    current_time = localized_time.strftime("%I:%M:%S %p")
+    hour = int(localized_time.strftime("%I"))
+    minute = int(localized_time.strftime("%M"))
+    
     
     # 播放报时
     pygame.init()
