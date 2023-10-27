@@ -1,9 +1,12 @@
 import tkinter as tk
-from tkinter import PhotoImage
+from tkinter import Button, Entry, Label, OptionMenu, StringVar, PhotoImage
+import threading
+from time import sleep
+import pygame
 from PIL import Image, ImageTk
 from datetime import datetime
 import pytz
-import pygame
+
 
 # Initialize pygame
 pygame.mixer.init()
@@ -18,11 +21,15 @@ clock.geometry(f"{window_width}x{window_height}")
 # Load images
 image = Image.open("tran.png")
 image = ImageTk.PhotoImage(image)
+
 alarm_image = Image.open("alarm_image.png")
 alarm_image = ImageTk.PhotoImage(alarm_image)
 
 alarm_background = Image.open("alarm_background.png")
 alarm_background = ImageTk.PhotoImage(alarm_background)
+
+countdown_image = Image.open("countdown.png")
+countdown_image=ImageTk.PhotoImage(countdown_image)
 
 # Timezones dictionary
 timezones = {
@@ -442,6 +449,132 @@ alarm_button.grid(row=0, column=1)
 
 def start_clock():
     clock.mainloop()
+
+
+# 音乐文件列表
+MUSIC_FILES = {
+    "彩蝶舞夏": "彩蝶舞夏dancing_butterfly.mp3",
+    "Debussy-Arabesque No.1": "Debussy_ArabesqueNo1.mp3",
+    "Czerny Op. 740, No. 11": "Czerny_Op740.No11.mp3",
+    "Chopin Op.25, No.1": "Chopin_12Etudes,Op.25_No.1.mp3",
+    "Franz-Liszt Liebestraum": "Franz-Liszt-Liebestraum.mp3",
+}
+
+# 初始化 Pygame
+pygame.init()
+
+
+def open_timer_window():
+    timer_window = TimerWindow(clock)
+
+timer_button = Button(clock, image = countdown_image, command=open_timer_window)
+timer_button.grid(row=0,column=2)
+
+class TimerWindow(tk.Toplevel):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.title("Countdown")
+        
+        self.countdown_label = Label(self, text="00:00", font=("Helvetica", 24))
+        self.countdown_label.pack()
+
+        self.time_entry = Entry(self)
+        self.time_entry.pack()
+
+        tran_time_unit_label = {"中文":"分/秒","英文":"minutes/seconds"}
+        translated_time_unit = tran_time_unit_label.get(current_language)
+        self.time_unit_label = Label(self, text=translated_time_unit)
+        self.time_unit_label.pack()
+        
+        min_op = {"中文":"分","英文":"minutes"}
+        tran_min = min_op.get(current_language)
+        self.time_unit_var = StringVar(self)
+        self.time_unit_var.set(tran_min)
+        
+       
+        sec_op = {"中文":"秒","英文":"seconds"}
+        tran_sec = sec_op.get(current_language)
+        self.time_unit_menu = OptionMenu(self, self.time_unit_var, tran_min, tran_sec)
+        self.time_unit_menu.pack()
+        
+        tran_music_label = {"中文":"选择铃声","英文":"Please select ringtone:"}
+        translated_music = tran_music_label.get(current_language)
+        self.music_var = StringVar(self)
+        self.music_var.set(translated_music)  # 默认提示语
+        
+        music_label = Label(self, text=translated_music)
+        music_label.pack()
+
+        music_menu = OptionMenu(self, self.music_var, *MUSIC_FILES.keys())
+        music_menu.pack()
+
+        self.running = False
+        self.playing_music = False
+        
+        tran_start = {"中文":"开始","英文":"set:"}
+        translated_start = tran_start.get(current_language)
+        self.start_button = Button(self, text=translated_start, command=self.start_countdown)
+        self.start_button.pack()
+        
+        tran_stop = {"中文":"停止","英文":"stop"}
+        translated_stop = tran_stop.get(current_language)
+        self.stop_button = Button(self, text=translated_stop, command=self.stop_countdown)
+        self.stop_button.pack()
+        self.stop_button.config(state=tk.DISABLED)  # 初始状态下禁用停止按钮
+
+    def start_countdown(self):
+        if not self.running:
+            try:
+                time_unit = self.time_unit_var.get()
+                time_value = int(self.time_entry.get())
+                if time_unit == "minutes":
+                    countdown_seconds = time_value * 60
+                else:  # "seconds"
+                    countdown_seconds = time_value
+
+                self.running = True
+                self.time_entry.config(state=tk.DISABLED)
+                self.time_unit_menu.config(state=tk.DISABLED)
+                selected_music = self.music_var.get()
+                if selected_music == "Please select ringtone:" or "选择铃声":
+                    self.music_var.set("Debussy_ArabesquNo1")  # 如果用户未选择铃声，默认选择一首
+                else:
+                    self.music_var.set(selected_music)  # 获取所选的铃声
+
+                self.start_button.config(state=tk.DISABLED)  # 禁用开始按钮
+                self.stop_button.config(state=tk.NORMAL)  # 启用停止按钮
+
+                countdown_thread = threading.Thread(target=self.run_countdown, args=(countdown_seconds,))
+                countdown_thread.start()
+
+            except ValueError:
+                self.countdown_label.config(text="Please enter correct time.")
+
+    def run_countdown(self, countdown_seconds):
+        for remaining in range(countdown_seconds, -1, -1):
+            minutes, seconds = divmod(remaining, 60)
+            time_string = f"{minutes:02d}:{seconds:02d}"
+            self.countdown_label.config(text=time_string)
+            self.update()
+            sleep(1)
+
+        self.running = False
+        self.time_entry.config(state=tk.NORMAL)
+        self.time_unit_menu.config(state=tk.NORMAL)
+        self.start_button.config(state=tk.NORMAL)  # 启用开始按钮
+        self.stop_button.config(state=tk.NORMAL)  # 启用停止按钮
+
+        selected_music = MUSIC_FILES.get(self.music_var.get())
+        if selected_music:
+            pygame.mixer.music.load(selected_music)
+            pygame.mixer.music.play()
+            self.playing_music = True  # 音乐正在播放
+
+    def stop_countdown(self):
+        if self.playing_music:
+            pygame.mixer.music.stop()
+            self.playing_music = False
+        self.stop_button.config(state=tk.DISABLED)  # 停止后禁用停止按钮
 
 
 # 调用 start_clock() 函数启动Tkinter的主循环
