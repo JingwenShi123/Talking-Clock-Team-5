@@ -486,10 +486,18 @@ class TimerWindow(tk.Toplevel):
         self.time_unit_label = Label(self, text=translated_time_unit)
         self.time_unit_label.pack()
         
+        if current_language == "英文":
+            time_unit_options = ["minutes", "seconds"]
+        else:
+            time_unit_options = ["分", "秒"]
+
+
+
+        
         min_op = {"中文":"分","英文":"minutes"}
         tran_min = min_op.get(current_language)
         self.time_unit_var = StringVar(self)
-        self.time_unit_var.set(tran_min)
+        self.time_unit_var.set(time_unit_options[1]) 
         
        
         sec_op = {"中文":"秒","英文":"seconds"}
@@ -500,7 +508,7 @@ class TimerWindow(tk.Toplevel):
         tran_music_label = {"中文":"选择铃声","英文":"Please select ringtone:"}
         translated_music = tran_music_label.get(current_language)
         self.music_var = StringVar(self)
-        self.music_var.set(translated_music)  # 默认提示语
+        self.music_var.set(list(MUSIC_FILES.keys())[1])  # 默认提示语
         
         music_label = Label(self, text=translated_music)
         music_label.pack()
@@ -513,12 +521,12 @@ class TimerWindow(tk.Toplevel):
         
         tran_start = {"中文":"开始","英文":"set:"}
         translated_start = tran_start.get(current_language)
-        self.start_button = Button(self, text=translated_start, command=self.start_countdown)
+        self.start_button = tk.Button(self, text=translated_start, command=self.start_countdown)
         self.start_button.pack()
         
         tran_stop = {"中文":"停止","英文":"stop"}
         translated_stop = tran_stop.get(current_language)
-        self.stop_button = Button(self, text=translated_stop, command=self.stop_countdown)
+        self.stop_button = tk.Button(self, text=translated_stop, command=self.stop_countdown)
         self.stop_button.pack()
         self.stop_button.config(state=tk.DISABLED)  # 初始状态下禁用停止按钮
 
@@ -536,8 +544,10 @@ class TimerWindow(tk.Toplevel):
                 self.time_entry.config(state=tk.DISABLED)
                 self.time_unit_menu.config(state=tk.DISABLED)
                 selected_music = self.music_var.get()
-                if selected_music == "Please select ringtone:" or "选择铃声":
-                    self.music_var.set("Debussy_ArabesquNo1")  # 如果用户未选择铃声，默认选择一首
+                
+
+                if selected_music == "Please select ringtone:":
+                    self.music_var.set("Debussy_ArabesquNo1")  
                 else:
                     self.music_var.set(selected_music)  # 获取所选的铃声
 
@@ -564,9 +574,10 @@ class TimerWindow(tk.Toplevel):
         self.start_button.config(state=tk.NORMAL)  # 启用开始按钮
         self.stop_button.config(state=tk.NORMAL)  # 启用停止按钮
 
-        selected_music = MUSIC_FILES.get(self.music_var.get())
-        if selected_music:
-            pygame.mixer.music.load(selected_music)
+        sel_music = MUSIC_FILES.get(self.music_var.get())
+        
+        if sel_music:
+            pygame.mixer.music.load(sel_music)
             pygame.mixer.music.play()
             self.playing_music = True  # 音乐正在播放
 
