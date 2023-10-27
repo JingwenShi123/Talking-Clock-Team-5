@@ -95,11 +95,11 @@ We will display hours, minutes, and seconds, but when announcing verbally, we wo
 This Clock operates on a twelve-hour system  
 "AM" - "ante meridiem" 
 "PM" -"post meridiem"  
-*1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.*  
-*2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.*  
-*3. New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.*  
-*4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.*  
-*5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.*  
+*- Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.*  
+*- Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.*  
+*- New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.*  
+*- Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.*  
+*- LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.*  
 
 **Date: yy-mm-dd**  
 Date changes with time zones and attached with Monday - Sunday
