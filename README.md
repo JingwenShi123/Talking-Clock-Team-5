@@ -118,6 +118,7 @@ Select the countdown icon and, in the pop-up interface, configure the countdown 
 *(1) Choosing the time unit - hours/minutes;*  
 *(2) Manually entering the numerical value;*  
 *(3) Selecting a preferred alert ringtone (or using the default ringtone).*  
+*(4) When the ringtone plays, the user can either wait for the entire music piece to finish playing or click the stop button directly.*
 
 ##  Licensing and FAIR Data Principles
 The significance of Licensing and adherence to the FAIR data principles in our project is paramount in ensuring the creation of a reliable, inclusive, and ethically responsible tool. Our bilingual time-announcing clock is committed to upholding these principles.
