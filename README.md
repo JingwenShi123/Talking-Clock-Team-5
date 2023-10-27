@@ -37,10 +37,12 @@ Shenghuan Ding
 **1. Display Current Time**: The clock will show the current hour, minute, and second.  
 **2. Date Setting**: Display the local year, month, day, and day of the week.  
 **3. Language Setting**: preferred text language and announcement language for the target user. 
-**4. Time Zone Setting**: Allow users to choose or set their desired time zone to ensure the clock displays the correct local time.  
-**5. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times and pause them as well. 
-**6. Snooze**: Allow users to "snooze for 5 minutes" by clicking a button that automatically sets an alarm for 5 minutes later.  
-**7. Background Automation**: Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
+**4. Time Announcement**: Deliver a clear and concise bilingual time announcement capability in both Chinese and English.  
+**5. Time Zone Setting**: Allow users to choose or set their desired time zone to ensure the clock displays the correct local time.  
+**6. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times and pause them as well. 
+**7. Snooze**: Allow users to "snooze for 5 minutes" by clicking a button that automatically sets an alarm for 5 minutes later.  
+**8. Background Automation**: Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
+**9. Countdown Timer**: Develop a countdown timer function in hours / minutes, and offer users the option to select their preferred ringtone.  
 
 #### Voice Integration
 **1. Text Preparation**: Begin by structuring the text for both languages. In Chinese, it should be in the format: “现在是” + “上午/下午” + the hour + “点” + the minute. For English, structure it as: “It’s” + the minute + past/for + the hour”.  
@@ -64,9 +66,12 @@ Shenghuan Ding
 **11. Date Display**: Show the local date and day of the week, helping users quickly access date information.  
 **12. Alarm Functionality**: Provide users with the ability to set alarms, allowing them to independently pause music or ringtone.  
 **13. Music**: We altered different musics to find the best one for the alarm, not only serving as a reminder but also provide a delightful wake-up (reminder) service, pleasing to the ear for customers.  
+**14. Diverse Selection**: We offer our customers a wide array of choices for countdown alert ringtones, allowing them to customize their settings based on individual needs and preferences.
 
 ## Technical documentation and reflection
 ### Code
+
+
 
 ### Audio Recording
 **1. Speech Rate**: Maintain a roughly consistent pace for each individual word, particularly with numbers, to avoid variations in speed that can result in unclear English voice time announcements.  
@@ -90,11 +95,11 @@ We will display hours, minutes, and seconds, but when announcing verbally, we wo
 This Clock operates on a twelve-hour system  
 "AM" - "ante meridiem" 
 "PM" -"post meridiem"  
-1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.  
-2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.  
-3. New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.  
-4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.  
-5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.  
+*1. Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.*  
+*2. Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.*  
+*3. New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.*  
+*4. Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.*  
+*5. LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.*  
 
 **Date: yy-mm-dd**  
 Date changes with time zones and attached with Monday - Sunday
@@ -106,8 +111,13 @@ The clock icon can be clicked to set an alarm. Clicking the button will bring up
 If you wish to "snooze for 5 minutes," simply press the "Snooze" button, and the system will automatically set an alarm to gently awaken you again in 5 minutes, providing you with a delightful morning experience.
 
 **Daytime & Nighttime Indication**  
-The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.
+The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.  
 
+**Countdown Timer**  
+Select the countdown icon and, in the pop-up interface, configure the countdown duration by:  
+*(1) Choosing the time unit - hours/minutes;*  
+*(2) Manually entering the numerical value;*  
+*(3) Selecting a preferred alert ringtone (or using the default ringtone).*  
 
 ##  Licensing and FAIR Data Principles
 The significance of Licensing and adherence to the FAIR data principles in our project is paramount in ensuring the creation of a reliable, inclusive, and ethically responsible tool. Our bilingual time-announcing clock is committed to upholding these principles.
@@ -119,12 +129,11 @@ The significance of Licensing and adherence to the FAIR data principles in our p
 **3. Audio Recording**: In the context of English voice time announcements, we utilize the voice of our team member, J. Shi, with her explicit authorization. Therefore, our process aligns with the FAIR and GDPR principles, ensuring compliance and ethical handling of data and personal information.
 
 **4. Adherence to FAIR Data Principles**:  
-   - *Findable*: Our clock's dual-language time-announcing functionality enhances its discoverability, catering to a broad, global audience.
-   - *Accessible*: We prioritize ease of use, ensuring our tool is accessible to individuals of varying technological proficiency.
-   - *Interoperable*: Designed to cater to diverse time zones, our project fosters interoperability, delivering precise time data for a global user base.
-   - *Reusable*: The core functionality of our bilingual time-announcing clock is versatile, allowing it to be reused across diverse applications and platforms.
+   - *Findable: Our clock's dual-language time-announcing functionality enhances its discoverability, catering to a broad, global audience.*  
+   - *Accessible: We prioritize ease of use, ensuring our tool is accessible to individuals of varying technological proficiency.*  
+   - *Interoperable: Designed to cater to diverse time zones, our project fosters interoperability, delivering precise time data for a global user base.*  
+   - *Reusable: The core functionality of our bilingual time-announcing clock is versatile, allowing it to be reused across diverse applications and platforms.* 
 
-**5. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.
-
+**5. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.  
 
 In summary, our bilingual time-announcing clock represents a trustworthy and inclusive tool, aligning with the ethical standards of data management, licensing, and accessibility.
