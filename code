@@ -31,7 +31,7 @@ alarm_background = ImageTk.PhotoImage(alarm_background)
 countdown_image = Image.open("countdown.png")
 countdown_image=ImageTk.PhotoImage(countdown_image)
 
-# Timezones dictionary
+# Timezones dictioNew_English_audiosry
 timezones = {
     "东京": "Asia/Tokyo",
     "上海": "Asia/Shanghai",
@@ -40,7 +40,7 @@ timezones = {
     "伦敦": "Europe/London",
 }
 
-# Translations dictionary
+# Translations dictioNew_English_audiosry
 translations = {
     "中文": {
         "Shanghai": "上海",
@@ -237,56 +237,56 @@ def speak_english():
     pygame.init()
     pygame.mixer.init()
 
-    pygame.mixer.music.load("na/it_s.wav")
+    pygame.mixer.music.load("New_English_audios/it_s.wav")
     pygame.mixer.music.play()
     pygame.time.delay(650)  # 等待1秒，以确保it's音频播放完成
     #是否是整点
     if minute == 0:
-        hour_audio = pygame.mixer.Sound(f"na/{hour}.wav")
+        hour_audio = pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
         pygame.time.delay(1100) 
-        pygame.mixer.music.load("na/o_clock.wav")
+        pygame.mixer.music.load("New_English_audios/o_clock.wav")
         pygame.mixer.music.play()
     #是否是15分
     if minute == 15:
-        pygame.mixer.music.load("na/a_quarter_past.wav")
+        pygame.mixer.music.load("New_English_audios/a_quarter_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
-        hour_audio=pygame.mixer.Sound(f"na/{hour}.wav")
+        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
     #是否是半点
     if minute == 30:
-        pygame.mixer.music.load("na/a_half_past.wav")
+        pygame.mixer.music.load("New_English_audios/a_half_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1300)
-        hour_audio=pygame.mixer.Sound(f"na/{hour}.wav")
+        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
     #是否是45分
     if minute == 45:
-        pygame.mixer.music.load("na/a_quarter_to.wav")
+        pygame.mixer.music.load("New_English_audios/a_quarter_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
-        hour_audio=pygame.mixer.Sound(f"na/{hour+1}.wav")
+        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour+1}.wav")
         hour_audio.play()
     #是否在30以内
     if minute < 30:
-        minute_audio = pygame.mixer.Sound(f"na/{minute}.wav")
+        minute_audio = pygame.mixer.Sound(f"New_English_audios/{minute}.wav")
         minute_audio.play()
         pygame.time.delay(1200) 
-        pygame.mixer.music.load("na/minutes_past.wav")
+        pygame.mixer.music.load("New_English_audios/minutes_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1100)
-        hour_audio=pygame.mixer.Sound(f"na/{hour}.wav")
+        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
     else:
         to_min = 60-int(minute)
-        minute_audio = pygame.mixer.Sound(f"na/{to_min}.wav")
+        minute_audio = pygame.mixer.Sound(f"New_English_audios/{to_min}.wav")
         minute_audio.play()
         pygame.time.delay(1200) 
-        pygame.mixer.music.load("na/minutes_to.wav")
+        pygame.mixer.music.load("New_English_audios/minutes_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1100)
-        hour_audio=pygame.mixer.Sound(f"na/{hour+1}.wav")
+        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour+1}.wav")
         hour_audio.play()
   
     # 等待所有声音播放完成
@@ -309,7 +309,7 @@ enspeak_time_button = tk.Button(
 )
 enspeak_time_button.grid(row=0, column=3)
 
-# Rest of the code for the alarm functionality (unchanged)
+# Rest of the code for the alarm functioNew_English_audioslity (unchanged)
 
 alarm_triggered = False
 
