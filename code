@@ -31,7 +31,7 @@ alarm_background = ImageTk.PhotoImage(alarm_background)
 countdown_image = Image.open("countdown.png")
 countdown_image=ImageTk.PhotoImage(countdown_image)
 
-# Timezones dictioNew_English_audiosry
+# Timezones dictionary
 timezones = {
     "东京": "Asia/Tokyo",
     "上海": "Asia/Shanghai",
@@ -40,7 +40,7 @@ timezones = {
     "伦敦": "Europe/London",
 }
 
-# Translations dictioNew_English_audiosry
+# Translations dictionary
 translations = {
     "中文": {
         "Shanghai": "上海",
@@ -227,60 +227,60 @@ def speak_english():
     pygame.init()
     pygame.mixer.init()
 
-    pygame.mixer.music.load("New_English_audios/it_s.wav")
+    pygame.mixer.music.load("English_audios/it_s.wav")
     pygame.mixer.music.play()
     pygame.time.delay(650)  # To wait for 1 second to ensure the 'it's' audio playback is completed
     
     # Check if it is the top of the hour
     if minute == 0:
-        hour_audio = pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
+        hour_audio = pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
         pygame.time.delay(1100) 
-        pygame.mixer.music.load("New_English_audios/o_clock.wav")
+        pygame.mixer.music.load("English_audios/o_clock.wav")
         pygame.mixer.music.play()
     
     # Check if it is a quarter past an hour
     if minute == 15:
-        pygame.mixer.music.load("New_English_audios/a_quarter_past.wav")
+        pygame.mixer.music.load("English_audios/a_quarter_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
-        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
+        hour_audio=pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
     
     # Check if it is a half past an hour
     if minute == 30:
-        pygame.mixer.music.load("New_English_audios/a_half_past.wav")
+        pygame.mixer.music.load("English_audios/a_half_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1300)
-        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
+        hour_audio=pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
     # Check if it is a quarter to an hour
     if minute == 45:
-        pygame.mixer.music.load("New_English_audios/a_quarter_to.wav")
+        pygame.mixer.music.load("English_audios/a_quarter_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
-        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour+1}.wav")
+        hour_audio=pygame.mixer.Sound(f"English_audios/{hour+1}.wav")
         hour_audio.play()
     
     # Check if it is within 30
     if minute < 30:
-        minute_audio = pygame.mixer.Sound(f"New_English_audios/{minute}.wav")
+        minute_audio = pygame.mixer.Sound(f"English_audios/{minute}.wav")
         minute_audio.play()
         pygame.time.delay(1200) 
-        pygame.mixer.music.load("New_English_audios/minutes_past.wav")
+        pygame.mixer.music.load("English_audios/minutes_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1100)
-        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
+        hour_audio=pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
     else:
         to_min = 60-int(minute)
-        minute_audio = pygame.mixer.Sound(f"New_English_audios/{to_min}.wav")
+        minute_audio = pygame.mixer.Sound(f"English_audios/{to_min}.wav")
         minute_audio.play()
         pygame.time.delay(1200) 
-        pygame.mixer.music.load("New_English_audios/minutes_to.wav")
+        pygame.mixer.music.load("English_audios/minutes_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1100)
-        hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour+1}.wav")
+        hour_audio=pygame.mixer.Sound(f"English_audios/{hour+1}.wav")
         hour_audio.play()
   
     pygame.time.wait(2000)
@@ -447,6 +447,7 @@ MUSIC_FILES = {
     "Franz-Liszt Liebestraum": "Franz-Liszt-Liebestraum.mp3",
 }
 
+pygame.init()
 pygame.mixer.init()
 
 #Create an instance of the TimerWindow
