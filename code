@@ -32,7 +32,7 @@ alarm_background = Image.open("alarm_background.png")
 alarm_background = ImageTk.PhotoImage(alarm_background)
 
 countdown_image = Image.open("countdown.png")
-countdown_image=ImageTk.PhotoImage(countdown_image)
+countdown_image = ImageTk.PhotoImage(countdown_image)
 
 # Timezones dictionary
 timezones = {
@@ -65,6 +65,8 @@ current_timezone = "Europe/Amsterdam"  # Default timezone
 current_language = "英文"  # Default language setting to English
 
 # Function to update time
+
+
 def update_time():
     tz = pytz.timezone(current_timezone)
     localized_time = datetime.now(tz)
@@ -75,6 +77,8 @@ def update_time():
     time_label.after(1000, update_time)
 
 # Function to change timezone
+
+
 def change_timezone(city):
     global current_timezone
     current_timezone = timezones[city]
@@ -82,6 +86,8 @@ def change_timezone(city):
     update_background()
 
 # Function to update background based on time
+
+
 def update_background():
     tz = datetime.now(pytz.timezone(current_timezone))
     current_hour = int(tz.strftime('%H'))
@@ -103,6 +109,8 @@ background_image.grid(row=0, column=0, columnspan=len(timezones), rowspan=4)
 update_background()
 
 # Function to change language
+
+
 def change_language():
     global current_language
     if current_language == "中文":
@@ -112,6 +120,8 @@ def change_language():
     update_language()
 
 # Function to update language
+
+
 def update_language():
     for button in buttons:
         translated_text = translations[current_language].get(
@@ -192,29 +202,32 @@ def speak_chinese():
     # Play it's
     pygame.mixer.music.load(f"chinese_audio/its.mp3")
     pygame.mixer.music.play()
-    pygame.time.delay(1000)  # To wait for 1 second to ensure the "it's" audio playback is completed.
+    # To wait for 1 second to ensure the "it's" audio playback is completed.
+    pygame.time.delay(1000)
 
     # Play AM/PM
     am_pm_audio = pygame.mixer.Sound(f"chinese_audio/{am_pm}.mp3")
     am_pm_audio.play()
-    pygame.time.delay(1000)  # To wait for 1 second to ensure the "AM/PM" audio playback is completed.
+    # To wait for 1 second to ensure the "AM/PM" audio playback is completed.
+    pygame.time.delay(1000)
 
     # Play hour
     hour_audio = pygame.mixer.Sound(f"chinese_audio/hour-{hour}.mp3")
     hour_audio.play()
-    pygame.time.delay(1000)  # To wait for 1 second to ensure the 'hour' audio playback is completed.
+    # To wait for 1 second to ensure the 'hour' audio playback is completed.
+    pygame.time.delay(1000)
 
     # Play dian
     dian_audio = pygame.mixer.Sound(f"chinese_audio/dian.mp3")
     dian_audio.play()
-    pygame.time.delay(1000)  # To wait for 1 second to ensure the 'dian' audio playback is completed.
+    # To wait for 1 second to ensure the 'dian' audio playback is completed.
+    pygame.time.delay(1000)
 
     # Play minute
     minute_audio = pygame.mixer.Sound(f"chinese_audio/min-{minute}.mp3")
     minute_audio.play()
-    pygame.time.delay(1000)  # To wait for 1 second to ensure the 'minute' audio playback is completed.
-
-    pygame.quit()
+    # To wait for 1 second to ensure the 'minute' audio playback is completed.
+    pygame.time.delay(1000)
 
 
 def speak_english():
@@ -224,72 +237,69 @@ def speak_english():
     current_time = localized_time.strftime("%I:%M:%S %p")
     hour = int(localized_time.strftime("%I"))
     minute = int(localized_time.strftime("%M"))
-    
-    
+
     # Play time announcement
     pygame.init()
     pygame.mixer.init()
 
     pygame.mixer.music.load("English_audios/it_s.wav")
     pygame.mixer.music.play()
-    pygame.time.delay(650)  # To wait for 1 second to ensure the 'it's' audio playback is completed
-    
+    # To wait for 1 second to ensure the 'it's' audio playback is completed
+    pygame.time.delay(650)
+
     # Check if it is the top of the hour
     if minute == 0:
         hour_audio = pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
-        pygame.time.delay(1100) 
+        pygame.time.delay(1100)
         pygame.mixer.music.load("English_audios/o_clock.wav")
         pygame.mixer.music.play()
-    
+
     # Check if it is a quarter past an hour
     if minute == 15:
         pygame.mixer.music.load("English_audios/a_quarter_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
-        hour_audio=pygame.mixer.Sound(f"English_audios/{hour}.wav")
+        hour_audio = pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
-    
+
     # Check if it is a half past an hour
     if minute == 30:
         pygame.mixer.music.load("English_audios/a_half_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1300)
-        hour_audio=pygame.mixer.Sound(f"English_audios/{hour}.wav")
+        hour_audio = pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
     # Check if it is a quarter to an hour
     if minute == 45:
         pygame.mixer.music.load("English_audios/a_quarter_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
-        hour_audio=pygame.mixer.Sound(f"English_audios/{hour+1}.wav")
+        hour_audio = pygame.mixer.Sound(f"English_audios/{hour+1}.wav")
         hour_audio.play()
-    
+
     # Check if it is within 30
     if minute < 30:
         minute_audio = pygame.mixer.Sound(f"English_audios/{minute}.wav")
         minute_audio.play()
-        pygame.time.delay(1200) 
+        pygame.time.delay(1200)
         pygame.mixer.music.load("English_audios/minutes_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1100)
-        hour_audio=pygame.mixer.Sound(f"English_audios/{hour}.wav")
+        hour_audio = pygame.mixer.Sound(f"English_audios/{hour}.wav")
         hour_audio.play()
     else:
         to_min = 60-int(minute)
         minute_audio = pygame.mixer.Sound(f"English_audios/{to_min}.wav")
         minute_audio.play()
-        pygame.time.delay(1200) 
+        pygame.time.delay(1200)
         pygame.mixer.music.load("English_audios/minutes_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1100)
-        hour_audio=pygame.mixer.Sound(f"English_audios/{hour+1}.wav")
+        hour_audio = pygame.mixer.Sound(f"English_audios/{hour+1}.wav")
         hour_audio.play()
-  
+
     pygame.time.wait(2000)
-
-    pygame.quit()
-
 
 
 # Create speak time buttons with uniform size
@@ -300,7 +310,8 @@ chspeak_time_button = tk.Button(
 )
 chspeak_time_button.grid(row=0, column=4)
 enspeak_time_button = tk.Button(
-    clock, text="What time is it now?", font=common_font, command=speak_english, width=button_width, height=button_height, bg="#BEBDBE",  # Set the background color to gray.
+    # Set the background color to gray.
+    clock, text="What time is it now?", font=common_font, command=speak_english, width=button_width, height=button_height, bg="#BEBDBE",
     highlightbackground="SystemButtonFace"
 )
 enspeak_time_button.grid(row=0, column=3)
@@ -316,6 +327,8 @@ current_language = "英文"  # Set the default language to English.
 pygame.mixer.init()
 
 # Create a function to open the alarm window.
+
+
 def open_alarm_window():
     global alarm_triggered
     alarm = tk.Toplevel(clock)
@@ -399,7 +412,7 @@ def open_alarm_window():
             alarm_triggered = True
             play_alarm()
 
-            # Check again every second      
+            # Check again every second
         next_second = 60 - int(localized_time.strftime("%S"))
         alarm.after(next_second * 1000, check_alarm)
 
@@ -425,7 +438,8 @@ def open_alarm_window():
         global alarm_triggered
         alarm_triggered = False
         stop_alarm()
-        alarm.after(300000, play_alarm)  # Trigger the alarm again 10 minutes later.
+        # Trigger the alarm again 10 minutes later.
+        alarm.after(300000, play_alarm)
     tran_snooze = tran_snooze_alarm.get(current_language)
     snooze_button = tk.Button(button_frame, text=tran_snooze, font=(
         "Comic Sans MS", 10), command=snooze_alarm)
@@ -437,6 +451,8 @@ alarm_button = tk.Button(clock, image=alarm_image, command=open_alarm_window)
 alarm_button.grid(row=0, column=1)
 
 # Create a function to start the main loop of Tkinter.
+
+
 def start_clock():
     clock.mainloop()
 
@@ -451,14 +467,18 @@ MUSIC_FILES = {
 }
 
 
-pygame.mixer.init()
+pygame.init()
 
-#Create an instance of the TimerWindow
+# Create an instance of the TimerWindow
+
+
 def open_timer_window():
     timer_window = TimerWindow(clock)
 
-timer_button = Button(clock, image = countdown_image, command=open_timer_window)
-timer_button.grid(row=0,column=2)
+
+timer_button = Button(clock, image=countdown_image, command=open_timer_window)
+timer_button.grid(row=0, column=2)
+
 
 class TimerWindow(tk.Toplevel):
     def __init__(self, parent):
@@ -466,38 +486,40 @@ class TimerWindow(tk.Toplevel):
         self.title("Countdown")
         # Create a label to display the countdown time with a specified font.
 
-        self.countdown_label = Label(self, text="00:00", font=("Helvetica", 24))
+        self.countdown_label = Label(
+            self, text="00:00", font=("Helvetica", 24))
         self.countdown_label.pack()
 
         self.time_entry = Entry(self)
         self.time_entry.pack()
-       
+
        # Translation of time unit labels and options
-        tran_time_unit_label = {"中文":"分/秒","英文":"minutes/seconds"}
+        tran_time_unit_label = {"中文": "分/秒", "英文": "minutes/seconds"}
         translated_time_unit = tran_time_unit_label.get(current_language)
         self.time_unit_label = Label(self, text=translated_time_unit)
         self.time_unit_label.pack()
-        
+
         if current_language == "英文":
             time_unit_options = ["minutes", "seconds"]
         else:
             time_unit_options = ["分", "秒"]
 
-        min_op = {"中文":"分","英文":"minutes"}
+        min_op = {"中文": "分", "英文": "minutes"}
         tran_min = min_op.get(current_language)
         self.time_unit_var = StringVar(self)
-        self.time_unit_var.set(time_unit_options[1]) 
-       
-        sec_op = {"中文":"秒","英文":"seconds"}
+        self.time_unit_var.set(time_unit_options[1])
+
+        sec_op = {"中文": "秒", "英文": "seconds"}
         tran_sec = sec_op.get(current_language)
-        self.time_unit_menu = OptionMenu(self, self.time_unit_var, tran_min, tran_sec)
+        self.time_unit_menu = OptionMenu(
+            self, self.time_unit_var, tran_min, tran_sec)
         self.time_unit_menu.pack()
-        
-        tran_music_label = {"中文":"选择铃声","英文":"Please select ringtone:"}
+
+        tran_music_label = {"中文": "选择铃声", "英文": "Please select ringtone:"}
         translated_music = tran_music_label.get(current_language)
         self.music_var = StringVar(self)
-        self.music_var.set(list(MUSIC_FILES.keys())[1]) 
-        
+        self.music_var.set(list(MUSIC_FILES.keys())[1])
+
         music_label = Label(self, text=translated_music)
         music_label.pack()
 
@@ -505,18 +527,21 @@ class TimerWindow(tk.Toplevel):
         music_menu.pack()
 
         self.running = False
-        self.playing_music = False # Music menu options
-      
-        tran_start = {"中文":"开始","英文":"set:"}
+        self.playing_music = False  # Music menu options
+
+        tran_start = {"中文": "开始", "英文": "set:"}
         translated_start = tran_start.get(current_language)
-        self.start_button = tk.Button(self, text=translated_start, command=self.start_countdown)
+        self.start_button = tk.Button(
+            self, text=translated_start, command=self.start_countdown)
         self.start_button.pack()
-        
-        tran_stop = {"中文":"停止","英文":"stop"}
+
+        tran_stop = {"中文": "停止", "英文": "stop"}
         translated_stop = tran_stop.get(current_language)
-        self.stop_button = tk.Button(self, text=translated_stop, command=self.stop_countdown)
+        self.stop_button = tk.Button(
+            self, text=translated_stop, command=self.stop_countdown)
         self.stop_button.pack()
-        self.stop_button.config(state=tk.DISABLED)  # Disable the stop button initially.
+        # Disable the stop button initially.
+        self.stop_button.config(state=tk.DISABLED)
 
     def start_countdown(self):
         if not self.running:
@@ -534,14 +559,18 @@ class TimerWindow(tk.Toplevel):
                 selected_music = self.music_var.get()
 
                 if selected_music == "Please select ringtone:":
-                    self.music_var.set("Debussy_ArabesquNo1")  
+                    self.music_var.set("Debussy_ArabesquNo1")
                 else:
-                    self.music_var.set(selected_music)  # Get the selected ringtone.  
+                    # Get the selected ringtone.
+                    self.music_var.set(selected_music)
 
-                self.start_button.config(state=tk.DISABLED)  # Disable the start button.
-                self.stop_button.config(state=tk.NORMAL)  # Enable the stop button.
+                # Disable the start button.
+                self.start_button.config(state=tk.DISABLED)
+                # Enable the stop button.
+                self.stop_button.config(state=tk.NORMAL)
 
-                countdown_thread = threading.Thread(target=self.run_countdown, args=(countdown_seconds,))
+                countdown_thread = threading.Thread(
+                    target=self.run_countdown, args=(countdown_seconds,))
                 countdown_thread.start()
 
             except ValueError:
@@ -558,10 +587,10 @@ class TimerWindow(tk.Toplevel):
         self.running = False
         self.time_entry.config(state=tk.NORMAL)
         self.time_unit_menu.config(state=tk.NORMAL)
-        self.start_button.config(state=tk.NORMAL)  #  Enable the start button. 
-        self.stop_button.config(state=tk.NORMAL)  #  Enable the stop button.
+        self.start_button.config(state=tk.NORMAL)  # Enable the start button.
+        self.stop_button.config(state=tk.NORMAL)  # Enable the stop button.
         sel_music = MUSIC_FILES.get(self.music_var.get())
-        
+
         if sel_music:
             pygame.mixer.music.load(sel_music)
             pygame.mixer.music.play()
@@ -571,7 +600,8 @@ class TimerWindow(tk.Toplevel):
         if self.playing_music:
             pygame.mixer.music.stop()
             self.playing_music = False
-        self.stop_button.config(state=tk.DISABLED)  # Disable the stop button after stopping.
+        # Disable the stop button after stopping.
+        self.stop_button.config(state=tk.DISABLED)
 
 
 # Use the 'start_clock()' function to start the main loop of Tkinter.
