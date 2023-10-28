@@ -144,18 +144,18 @@ for idx, city in enumerate(timezones):
         width=button_width,
         height=button_height,
         command=lambda c=city: change_timezone(c),
-        bg="#BEBDBE",  # 设置背景颜色为灰色
+        bg="#BEBDBE",  # Set the background color to gray
         highlightbackground="SystemButtonFace"
     )
     button.grid(row=3, column=idx, padx=button_padding_x,
                 pady=button_padding_y)
     buttons.append(button)
 
-time_label = tk.Label(clock, text="", font=("Comic Sans MS", 72), bg="#BEBDBE",  # 设置背景颜色为灰色
+time_label = tk.Label(clock, text="", font=("Comic Sans MS", 72), bg="#BEBDBE",  # Set the background color to gray
                       highlightbackground="SystemButtonFace", width=11, height=1)
 
 time_label.grid(row=1, column=0, columnspan=len(timezones), pady=20)
-date_label = tk.Label(clock, text="", font=("Comic Sans MS", 25), bg="#BEBDBE",  # 设置背景颜色为灰色
+date_label = tk.Label(clock, text="", font=("Comic Sans MS", 25), bg="#BEBDBE",  # Set the background color to gray
                       highlightbackground="SystemButtonFace", width=18, height=1)
 date_label.grid(row=2, column=0, columnspan=len(timezones))
 
@@ -169,13 +169,13 @@ update_time()
 
 
 def speak_chinese():
-    # 获取当前时间
+    # Get the current time
     tz = pytz.timezone(current_timezone)
     current_time = datetime.now(tz)
     hour = current_time.hour
     minute = current_time.minute
 
-    # 转换小时为12小时制
+    # Convert the time to a 12-hour format
     if hour == 0:
         hour_str = "12"
         am_pm = "AM"
@@ -189,43 +189,43 @@ def speak_chinese():
         hour_str = str(hour - 12)
         am_pm = "PM"
 
-    # 生成报时文本
+    # Generate a time announcement text
     time_text = f"现在是 {am_pm}{hour_str}点{minute}"
 
-    # 播放报时
+    # Play announcement text
     pygame.init()
     pygame.mixer.init()
 
-    # 播放 it's
+    # Play it's
     pygame.mixer.music.load(f"chinese_audio/its.mp3")
     pygame.mixer.music.play()
-    pygame.time.delay(1000)  # 等待1秒，以确保it's音频播放完成
+    pygame.time.delay(1000)  # To wait for 1 second to ensure the "it's" audio playback is completed.
 
-    # 播放 AM/PM
+    # Play AM/PM
     am_pm_audio = pygame.mixer.Sound(f"chinese_audio/{am_pm}.mp3")
     am_pm_audio.play()
-    pygame.time.delay(1000)  # 等待1秒，以确保AM/PM音频播放完成
+    pygame.time.delay(1000)  # To wait for 1 second to ensure the "AM/PM" audio playback is completed.
 
-    # 播放 hour
+    # Play hour
     hour_audio = pygame.mixer.Sound(f"chinese_audio/hour-{hour}.mp3")
     hour_audio.play()
-    pygame.time.delay(1000)  # 等待1秒，以确保hour音频播放完成
+    pygame.time.delay(1000)  # To wait for 1 second to ensure the 'hour' audio playback is completed.
 
-    # 播放 dian
+    # Play dian
     dian_audio = pygame.mixer.Sound(f"chinese_audio/dian.mp3")
     dian_audio.play()
-    pygame.time.delay(1000)  # 等待1秒，以确保dian音频播放完成
+    pygame.time.delay(1000)  # To wait for 1 second to ensure the 'dian' audio playback is completed.
 
-    # 播放 minute
+    # Play minute
     minute_audio = pygame.mixer.Sound(f"chinese_audio/min-{minute}.mp3")
     minute_audio.play()
-    pygame.time.delay(1000)  # 等待1秒，以确保minute音频播放完成
+    pygame.time.delay(1000)  # To wait for 1 second to ensure the 'minute' audio playback is completed.
 
     pygame.quit()
 
 
 def speak_english():
-    # 获取当前时间
+    # Get the current time
     tz = pytz.timezone(current_timezone)
     localized_time = datetime.now(tz)
     current_time = localized_time.strftime("%I:%M:%S %p")
@@ -233,42 +233,42 @@ def speak_english():
     minute = int(localized_time.strftime("%M"))
     
     
-    # 播放报时
+    # Play time announcement
     pygame.init()
     pygame.mixer.init()
 
     pygame.mixer.music.load("New_English_audios/it_s.wav")
     pygame.mixer.music.play()
-    pygame.time.delay(650)  # 等待1秒，以确保it's音频播放完成
-    #是否是整点
+    pygame.time.delay(650)  # To wait for 1 second to ensure the 'it's' audio playback is completed
+    #Check if it is the top of the hour
     if minute == 0:
         hour_audio = pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
         pygame.time.delay(1100) 
         pygame.mixer.music.load("New_English_audios/o_clock.wav")
         pygame.mixer.music.play()
-    #是否是15分
+    #Check if it is a quarter past an hour
     if minute == 15:
         pygame.mixer.music.load("New_English_audios/a_quarter_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
         hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
-    #是否是半点
+    #Check if it is a half past an hour
     if minute == 30:
         pygame.mixer.music.load("New_English_audios/a_half_past.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1300)
         hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour}.wav")
         hour_audio.play()
-    #是否是45分
+    #Check if it is a quarter to an hour
     if minute == 45:
         pygame.mixer.music.load("New_English_audios/a_quarter_to.wav")
         pygame.mixer.music.play()
         pygame.time.delay(1500)
         hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour+1}.wav")
         hour_audio.play()
-    #是否在30以内
+    #Check if it is within 30
     if minute < 30:
         minute_audio = pygame.mixer.Sound(f"New_English_audios/{minute}.wav")
         minute_audio.play()
@@ -289,7 +289,6 @@ def speak_english():
         hour_audio=pygame.mixer.Sound(f"New_English_audios/{hour+1}.wav")
         hour_audio.play()
   
-    # 等待所有声音播放完成
     pygame.time.wait(2000)
 
     pygame.quit()
@@ -299,7 +298,7 @@ def speak_english():
 # Create speak time buttons with uniform size
 chspeak_time_button = tk.Button(
     clock, text="现在几点了？", font=common_font, command=speak_chinese, width=button_width, height=button_height,
-    bg="#BEBDBE",  # 设置背景颜色为灰色
+    bg="#BEBDBE",  # Set the background color to gray.
     highlightbackground="SystemButtonFace"
 )
 chspeak_time_button.grid(row=0, column=4)
@@ -329,26 +328,26 @@ def open_alarm_window():
     alarm.geometry("560x400")
     alarm.title("Alarm Clock 闹钟")
 
-    # 获取主窗口的尺寸
+    # Get the dimensions of the main window.
     main_window_width = clock.winfo_width()
     main_window_height = clock.winfo_height()
 
-    # 获取闹钟窗口的尺寸
+    # Get the dimensions of the main window.
     alarm_width = 560
     alarm_height = 400
 
-    # 计算闹钟窗口在主窗口中的位置坐标
+    # Calculate the position coordinates of the alarm window within the main window.
     x = (main_window_width - alarm_width) // 2
     y = (main_window_height - alarm_height) // 2
 
-    # 设置闹钟窗口的位置
+    # Set the position of the alarm window.
     alarm.geometry(f"560x400+{x}+{y}")
 
 # Create a label to display the background image
     alarm_background_image = tk.Label(alarm, image=alarm_background)
     alarm_background_image.place(x=0, y=0, relwidth=1, relheight=1)
     alarm_background_image.lower()
-    # 创建frame
+    # Create frame
     button_frame = tk.Frame(alarm, width=1, height=1, bg="white")
 
     slider_frame = tk.Frame(alarm,  width=1, height=1, bg="white")
@@ -356,7 +355,7 @@ def open_alarm_window():
     slider_frame.place(x=90, y=100)
     button_frame.place(x=320, y=130)
 
-    # 创建用于设置小时的滑块
+    # Create a slider for setting the hour.
     translated_hour = tran_hour_label.get(current_language)
     hour_label = tk.Label(slider_frame, font=(
         "Comic Sans MS", 16), text=translated_hour, bg="white")
@@ -365,7 +364,7 @@ def open_alarm_window():
                            length=200, orient="vertical", bg="white")
     hour_slider.pack(side="left")
 
-    # 创建用于设置分钟的滑块
+    # Create a slider for setting the minute.
     translated_minute = tran_minute_label.get(current_language)
     minute_label = tk.Label(slider_frame, font=(
         "Comic Sans MS", 16), text=translated_minute, bg="white")
@@ -391,7 +390,7 @@ def open_alarm_window():
         translated_status = tran_alarm_status_label.get(current_language)
         alarm_status.config(text=translated_status)
 
-    # 定期检查是否触发闹钟
+    # Regularly check if the alarm has been triggered.
     def check_alarm():
         global alarm_triggered
         tz = pytz.timezone(current_timezone)
@@ -399,7 +398,7 @@ def open_alarm_window():
         current_hour = localized_time.strftime("%H")
         current_minute = localized_time.strftime("%M")
 
-        # 从滑块获取所选择的小时和分钟
+        # Retrieve the selected hour and minute from the slider.
         selected_hour = hour_slider.get()
         selected_minute = minute_slider.get()
 
@@ -407,17 +406,17 @@ def open_alarm_window():
             alarm_triggered = True
             play_alarm()
 
-            # 每一秒后再次检查        # 计算下一秒的开始并等待至下一秒的开始
+            # Check again every second       # Calculate the start of the next second and wait until the start of the next second.
         next_second = 60 - int(localized_time.strftime("%S"))
         alarm.after(next_second * 1000, check_alarm)
 
     def play_alarm():
-        # 加载并播放闹钟声音
+        # Play the ringtones
         pygame.mixer.init()
         pygame.mixer.music.load("sound.wav")
         pygame.mixer.music.play()
 
- # 添加停止按钮
+ # Stop button
     def stop_alarm():
         global alarm_triggered
         alarm_triggered = False
@@ -433,25 +432,25 @@ def open_alarm_window():
         global alarm_triggered
         alarm_triggered = False
         stop_alarm()
-        alarm.after(300000, play_alarm)  # 10分钟后再次触发闹钟
+        alarm.after(300000, play_alarm)  # Trigger the alarm again 10 minutes later.
     tran_snooze = tran_snooze_alarm.get(current_language)
     snooze_button = tk.Button(button_frame, text=tran_snooze, font=(
         "Comic Sans MS", 10), command=snooze_alarm)
     snooze_button.pack(side="left", padx=10, pady=10)
 
 
-# 创建一个按钮，用于激活 open_alarm_window() 函数以打开闹钟窗口
+# Create a button to activate the 'open_alarm_window()' function to open the alarm window.
 alarm_button = tk.Button(clock, image=alarm_image, command=open_alarm_window)
 alarm_button.grid(row=0, column=1)
 
-# 创建一个函数来启动Tkinter的主循环
+# Create a function to start the main loop of Tkinter.
 
 
 def start_clock():
     clock.mainloop()
 
 
-# 音乐文件列表
+# Ringtones
 MUSIC_FILES = {
     "彩蝶舞夏": "彩蝶舞夏dancing_butterfly.mp3",
     "Debussy-Arabesque No.1": "Debussy_ArabesqueNo1.mp3",
@@ -460,10 +459,9 @@ MUSIC_FILES = {
     "Franz-Liszt Liebestraum": "Franz-Liszt-Liebestraum.mp3",
 }
 
-# 初始化 Pygame
 pygame.init()
 
-
+#Create an instance of the TimerWindow
 def open_timer_window():
     timer_window = TimerWindow(clock)
 
@@ -474,13 +472,15 @@ class TimerWindow(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.title("Countdown")
-        
+        # Create a label to display the countdown time with a specified font.
+
         self.countdown_label = Label(self, text="00:00", font=("Helvetica", 24))
         self.countdown_label.pack()
 
         self.time_entry = Entry(self)
         self.time_entry.pack()
-
+       
+       # Translation of time unit labels and options
         tran_time_unit_label = {"中文":"分/秒","英文":"minutes/seconds"}
         translated_time_unit = tran_time_unit_label.get(current_language)
         self.time_unit_label = Label(self, text=translated_time_unit)
@@ -508,7 +508,7 @@ class TimerWindow(tk.Toplevel):
         tran_music_label = {"中文":"选择铃声","英文":"Please select ringtone:"}
         translated_music = tran_music_label.get(current_language)
         self.music_var = StringVar(self)
-        self.music_var.set(list(MUSIC_FILES.keys())[1])  # 默认提示语
+        self.music_var.set(list(MUSIC_FILES.keys())[1]) 
         
         music_label = Label(self, text=translated_music)
         music_label.pack()
@@ -517,8 +517,9 @@ class TimerWindow(tk.Toplevel):
         music_menu.pack()
 
         self.running = False
-        self.playing_music = False
-        
+        self.playing_music = False # Music menu options
+
+      
         tran_start = {"中文":"开始","英文":"set:"}
         translated_start = tran_start.get(current_language)
         self.start_button = tk.Button(self, text=translated_start, command=self.start_countdown)
@@ -528,7 +529,7 @@ class TimerWindow(tk.Toplevel):
         translated_stop = tran_stop.get(current_language)
         self.stop_button = tk.Button(self, text=translated_stop, command=self.stop_countdown)
         self.stop_button.pack()
-        self.stop_button.config(state=tk.DISABLED)  # 初始状态下禁用停止按钮
+        self.stop_button.config(state=tk.DISABLED)  # Disable the stop button initially.
 
     def start_countdown(self):
         if not self.running:
@@ -549,10 +550,10 @@ class TimerWindow(tk.Toplevel):
                 if selected_music == "Please select ringtone:":
                     self.music_var.set("Debussy_ArabesquNo1")  
                 else:
-                    self.music_var.set(selected_music)  # 获取所选的铃声
+                    self.music_var.set(selected_music)  # Get the selected ringtone.  
 
-                self.start_button.config(state=tk.DISABLED)  # 禁用开始按钮
-                self.stop_button.config(state=tk.NORMAL)  # 启用停止按钮
+                self.start_button.config(state=tk.DISABLED)  # Disable the start button.
+                self.stop_button.config(state=tk.NORMAL)  # Enable the stop button.
 
                 countdown_thread = threading.Thread(target=self.run_countdown, args=(countdown_seconds,))
                 countdown_thread.start()
@@ -571,22 +572,21 @@ class TimerWindow(tk.Toplevel):
         self.running = False
         self.time_entry.config(state=tk.NORMAL)
         self.time_unit_menu.config(state=tk.NORMAL)
-        self.start_button.config(state=tk.NORMAL)  # 启用开始按钮
-        self.stop_button.config(state=tk.NORMAL)  # 启用停止按钮
-
+        self.start_button.config(state=tk.NORMAL)  #  Enable the start button. 
+        self.stop_button.config(state=tk.NORMAL)  #  Enable the stop button.
         sel_music = MUSIC_FILES.get(self.music_var.get())
         
         if sel_music:
             pygame.mixer.music.load(sel_music)
             pygame.mixer.music.play()
-            self.playing_music = True  # 音乐正在播放
+            self.playing_music = True  # Play music
 
     def stop_countdown(self):
         if self.playing_music:
             pygame.mixer.music.stop()
             self.playing_music = False
-        self.stop_button.config(state=tk.DISABLED)  # 停止后禁用停止按钮
+        self.stop_button.config(state=tk.DISABLED)  # Disable the stop button after stopping.
 
 
-# 调用 start_clock() 函数启动Tkinter的主循环
+# Use the 'start_clock()' function to start the main loop of Tkinter.
 start_clock()
