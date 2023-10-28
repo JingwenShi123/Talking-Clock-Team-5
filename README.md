@@ -1,9 +1,11 @@
 # Talking-Clock-Team-5
 
 ## Project description
+
 This is an interactive speaking/talking clock that we developed in Python 3.9 for an assignment for the course "Introduction to Voice Technology" & "Programming" as part of the Voice Technology MSc at RUG - Campus Fryslan.
 
 ## Requirements before installing
+
 Make sure you have `Python 3` installed.  
 If not, please download the latest 3.12.0 version from here:  
 https://www.python.org/downloads/
@@ -19,40 +21,45 @@ https://www.python.org/downloads/
 the steps above can be skipped)
 
 3. Open the terminal (or command prompt, depending on the OS you use) and navigate
-to where you extracted the zip via the terminal.
+   to where you extracted the zip via the terminal.
 4. Run `pip install -r requirements.txt` to install the dependencies required.
 
 ## Team Organization and Workflow
-### Team organization 
+
+### Team organization
+
 Jingwen Shi  
-Lifan Qu   
+Lifan Qu  
 Yining Lei  
 Yilan Wei  
 Siqi Zheng  
-Shenghuan Ding  
+Shenghuan Ding
 
 ### Project Workflow
 
 #### Basic Clock Functionality
+
 **1. Display Current Time**: The clock will show the current hour, minute, and second.  
 **2. Date Setting**: Display the local year, month, day, and day of the week.  
-**3. Language Setting**: preferred text language and announcement language for the target user. 
+**3. Language Setting**: preferred text language and announcement language for the target user.
 **4. Time Announcement**: Deliver a clear and concise bilingual time announcement capability in both Chinese and English.  
 **5. Time Zone Setting**: Allow users to choose or set their desired time zone to ensure the clock displays the correct local time.  
-**6. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times and pause them as well. 
+**6. Alarm Function**: Allow users to set one or more alarms to receive reminders at specific times and pause them as well.
 **7. Snooze**: Allow users to "snooze for 5 minutes" by clicking a button that automatically sets an alarm for 5 minutes later.  
 **8. Background Automation**: Visually remind customers of the local time by providing both daytime and nighttime backgrounds.  
-**9. Countdown Timer**: Develop a countdown timer function in hours / minutes, and offer users the option to select their preferred ringtone.  
+**9. Countdown Timer**: Develop a countdown timer function in hours / minutes, and offer users the option to select their preferred ringtone.
 
 #### Voice Integration
+
 **1. Text Preparation**: Begin by structuring the text for both languages. In Chinese, it should be in the format: “现在是” + “上午/下午” + the hour + “点” + the minute. For English, structure it as: “It’s” + the minute + past/for + the hour”.  
 **2. File Naming**: Associate each text with a relevant file name for the generated audio.  
 **3. Text-to-Speech Conversion**: Utilize Google Text-to-Speech (TTS) to convert the prepared text into audio, ensuring that the correct language and accent settings are in place for each language.  
 **4. Audio Recording**: We have recorded 'it's / o'clock / a quarter past / a quarter to / half past / minutes past minutes to / 1-29 (except for 15)' according to time and code logic.  
 **5. File Output**: Save the resulting audio as WAV files with meaningful file names, ideally organized in a well-structured directory.  
-**6. Modular Implementation**: Integrate this process into a modular component within your program, allowing easy and seamless time announcements in either language.”  
+**6. Modular Implementation**: Integrate this process into a modular component within your program, allowing easy and seamless time announcements in either language.”
 
 #### User Interface and Customization
+
 **1. Display Clarity**: Ensure that the numbers and text on the clock are easily legible, allowing users to effortlessly read the time.  
 **2. Font Customization**: Employ a charming and rounded typeface to enhance the clock's aesthetics.  
 **3. Display Layout**: Consider the layout of numbers and buttons for easy comprehension. Separate the display of hours, minutes, and seconds clearly. Arrange the buttons in a manner consistent with existing English web and app products, aligning with user familiarity to facilitate a quick learning curve. Adjust the buttons and various components to appropriate sizes to create a harmonious overall visual composition.  
@@ -69,18 +76,23 @@ Shenghuan Ding
 **14. Diverse Selection**: We offer our customers a wide array of choices for countdown alert ringtones, allowing them to customize their settings based on individual needs and preferences.
 
 ## Technical documentation and reflection
-### Code
-
-
 
 ### Audio Recording
-**1. Speech Rate**: Maintain a roughly consistent pace for each individual word, particularly with numbers, to avoid variations in speed that can result in unclear English voice time announcements.  
 
-**2. WAV Segment Duration**: When extracting audio using Praat software, endeavor to make the audio length of each number approximately equal. This helps prevent situations where the minute announcement hasn't been completed yet, while the hour announcement has already begun.  
+**1. Speech Rate**: Maintain a roughly consistent pace for each individual word, particularly with numbers, to avoid variations in speed that can result in unclear English voice time announcements.
 
-**3. Utilizing Appropriate Waiting Durations**: Only when audio durations are approximately equivalent can we determine suitable waiting periods between two audio segments. On this foundation, constant adjustments are made to achieve the most appropriate interval duration. Too short of a pause can lead to unclear time announcements, while overly lengthy pauses can reduce efficiency and make the announcements sound less like artificial intelligence-generated responses.  
+**2. WAV Segment Duration**: When extracting audio using Praat software, endeavor to make the audio length of each number approximately equal. This helps prevent situations where the minute announcement hasn't been completed yet, while the hour announcement has already begun.
+
+**3. Utilizing Appropriate Waiting Durations**: Only when audio durations are approximately equivalent can we determine suitable waiting periods between two audio segments. On this foundation, constant adjustments are made to achieve the most appropriate interval duration. Too short of a pause can lead to unclear time announcements, while overly lengthy pauses can reduce efficiency and make the announcements sound less like artificial intelligence-generated responses.
+
+### Difficulties
+
+The biggest difficulty is that the audio of time, alarm clock, and timer cannot be played due to various reasons. Even the same code can sometimes be played and sometimes cannot be played. Finally, it was solved by adding "pygame.time.delay" by asking chatgpt for help.
+
+There are also some difficulties when learning how to collaborate on GitHub. For example, redundant files will not be deleted in the repository at first, and the combination of different functions that everyone is responsible for cannot run smoothly because everyone has different coding habits. For example, some people like to use "grid", while others like to use "pack". Finally, we learned how to use the clone repository, which greatly improved the speed of pulling and pushing. And in future cooperation, unified standards and variable names can be formulated before division of labor.
 
 ## User Manual
+
 Run `python main.py` in the terminal. Make sure to be in the same directory where
 the repository is installed in the terminal. It will open an interactive GUI with which
 you can interact with.
@@ -88,18 +100,18 @@ you can interact with.
 **Language Switch**  
 Written Language: Click the "EN-中" button in the top left corner to switch the text language.  
 Time-telling Language: Choose either of the time-telling buttom as your prefrred language.  
-For Example: EN-*What time is it*  /  中-*现在几点了*  
+For Example: EN-_What time is it_ / 中-_现在几点了_  
 We will display hours, minutes, and seconds, but when announcing verbally, we won't mention the seconds.
 
 **Timezone Slection**  
 This Clock operates on a twelve-hour system  
-"AM" - "ante meridiem" 
+"AM" - "ante meridiem"
 "PM" -"post meridiem"  
-*- Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E.*  
-*- Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E.*  
-*- New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W.*  
-*- Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E.*  
-*- LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W.*  
+_- Tokyo: Japan Standard Time (JST) Latitude:35.682839°N, Longitude:139.759455°E._  
+_- Shanghai: China Standard Time (CST) Latitude:31.230416°N, Longitude:121.473701°E._  
+_- New York: Eastern Standard Time (EST) Latitude:40.712776°N, Longitude:74.005974°W._  
+_- Amsterdam): Central European Time (CET) Latitude:52.366697°N, Longitude:4.894540°E._  
+_- LondonGreenwich Mean Time (GMT) Latitude:51.507351°N, Longitude:0.127758°W._
 
 **Date: yy-mm-dd**  
 Date changes with time zones and attached with Monday - Sunday
@@ -111,16 +123,17 @@ The clock icon can be clicked to set an alarm. Clicking the button will bring up
 If you wish to "snooze for 5 minutes," simply press the "Snooze" button, and the system will automatically set an alarm to gently awaken you again in 5 minutes, providing you with a delightful morning experience.
 
 **Daytime & Nighttime Indication**  
-The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.  
+The images daytime and nighttime are setted as background. The two models switch automatically to indicate the time.
 
 **Countdown Timer**  
 Select the countdown icon and, in the pop-up interface, configure the countdown duration by:  
-*(1) Choosing the time unit - hours/minutes;*  
-*(2) Manually entering the numerical value;*  
-*(3) Selecting a preferred alert ringtone (or using the default ringtone).*  
-*(4) When the ringtone plays, the user can either wait for the entire music piece to finish playing or click the stop button directly.*
+_(1) Choosing the time unit - hours/minutes;_  
+_(2) Manually entering the numerical value;_  
+_(3) Selecting a preferred alert ringtone (or using the default ringtone)._  
+_(4) When the ringtone plays, the user can either wait for the entire music piece to finish playing or click the stop button directly._
 
-##  Licensing and FAIR Data Principles
+## Licensing and FAIR Data Principles
+
 The significance of Licensing and adherence to the FAIR data principles in our project is paramount in ensuring the creation of a reliable, inclusive, and ethically responsible tool. Our bilingual time-announcing clock is committed to upholding these principles.
 
 **1. Significance of Licensing and FAIR Data Principle**: Licensing and FAIR data principles hold profound importance. Licensing ensures that our tool is legally and ethically sound, contributing to its trustworthiness and credibility. FAIR principles—Findable, Accessible, Interoperable, and Reusable—ensure that our data and technology are accessible to all, fostering inclusivity and data integrity.
@@ -129,12 +142,13 @@ The significance of Licensing and adherence to the FAIR data principles in our p
 
 **3. Audio Recording**: In the context of English voice time announcements, we utilize the voice of our team member, J. Shi, with her explicit authorization. Therefore, our process aligns with the FAIR and GDPR principles, ensuring compliance and ethical handling of data and personal information.
 
-**4. Adherence to FAIR Data Principles**:  
-   - *Findable: Our clock's dual-language time-announcing functionality enhances its discoverability, catering to a broad, global audience.*  
-   - *Accessible: We prioritize ease of use, ensuring our tool is accessible to individuals of varying technological proficiency.*  
-   - *Interoperable: Designed to cater to diverse time zones, our project fosters interoperability, delivering precise time data for a global user base.*  
-   - *Reusable: The core functionality of our bilingual time-announcing clock is versatile, allowing it to be reused across diverse applications and platforms.* 
+**4. Adherence to FAIR Data Principles**:
 
-**5. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.  
+- _Findable: Our clock's dual-language time-announcing functionality enhances its discoverability, catering to a broad, global audience._
+- _Accessible: We prioritize ease of use, ensuring our tool is accessible to individuals of varying technological proficiency._
+- _Interoperable: Designed to cater to diverse time zones, our project fosters interoperability, delivering precise time data for a global user base._
+- _Reusable: The core functionality of our bilingual time-announcing clock is versatile, allowing it to be reused across diverse applications and platforms._
+
+**5. GDPR Compliance**: We take pride in confirming that our voice synthesis process adheres to the stringent regulations of the General Data Protection Regulation (GDPR), ensuring users' data privacy and security.
 
 In summary, our bilingual time-announcing clock represents a trustworthy and inclusive tool, aligning with the ethical standards of data management, licensing, and accessibility.
