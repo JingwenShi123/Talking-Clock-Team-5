@@ -403,7 +403,7 @@ def open_alarm_window():
     def play_alarm():
         # Play the ringtones
         pygame.mixer.init()
-        pygame.mixer.music.load("sound.wav")
+        pygame.mixer.music.load("Franz-Liszt-Liebestraum.mp3")
         pygame.mixer.music.play()
 
  # Stop button
