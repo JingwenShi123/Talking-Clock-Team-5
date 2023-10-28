@@ -1,12 +1,15 @@
 import tkinter as tk
 from tkinter import Button, Entry, Label, OptionMenu, StringVar, PhotoImage
+
 import threading
 from time import sleep
+
 import pygame
+
 from PIL import Image, ImageTk
+
 from datetime import datetime
 import pytz
-
 
 # Initialize pygame
 pygame.mixer.init()
