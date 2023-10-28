@@ -450,7 +450,7 @@ MUSIC_FILES = {
     "Franz-Liszt Liebestraum": "Franz-Liszt-Liebestraum.mp3",
 }
 
-pygame.init()
+
 pygame.mixer.init()
 
 #Create an instance of the TimerWindow
