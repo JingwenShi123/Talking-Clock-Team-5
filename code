@@ -303,7 +303,7 @@ chspeak_time_button = tk.Button(
 )
 chspeak_time_button.grid(row=0, column=4)
 enspeak_time_button = tk.Button(
-    clock, text="What time is it now?", font=common_font, command=speak_english, width=button_width, height=button_height, bg="#BEBDBE",  # 设置背景颜色为灰色
+    clock, text="What time is it now?", font=common_font, command=speak_english, width=button_width, height=button_height, bg="#BEBDBE",  # Set the background color to gray.
     highlightbackground="SystemButtonFace"
 )
 enspeak_time_button.grid(row=0, column=3)
@@ -317,9 +317,9 @@ tran_minute_label = {"中文": "分", "英文": "minute"}
 tran_set_alarm_button = {"中文": "设置闹钟", "英文": "Set"}
 tran_stop_button = {"中文": "停止", "英文": "Stop"}
 tran_snooze_alarm = {"中文": "再睡5分钟", "英文": "Snooze"}
-current_language = "英文"  # 默认语言设置为英文
+current_language = "英文"  # Set the default language to English.
 pygame.mixer.init()
-# 创建一个函数来打开闹钟窗口
+# Create a function to open the alarm window.
 
 
 def open_alarm_window():
