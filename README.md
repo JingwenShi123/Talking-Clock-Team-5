@@ -75,7 +75,7 @@ Shenghuan Ding
 **13. Music**: We altered different musics to find the best one for the alarm, not only serving as a reminder but also provide a delightful wake-up (reminder) service, pleasing to the ear for customers.  
 **14. Diverse Selection**: We offer our customers a wide array of choices for countdown alert ringtones, allowing them to customize their settings based on individual needs and preferences.
 
-## Technical documentation and reflection
+## Technical reflection
 
 ### Audio Recording
 
