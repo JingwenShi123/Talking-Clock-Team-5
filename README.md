@@ -28,12 +28,14 @@ the steps above can be skipped)
 
 ### Team organization
 
-Jingwen Shi  
-Lifan Qu  
-Yining Lei  
-Yilan Wei  
-Siqi Zheng  
-Shenghuan Ding
+Shenghuan Ding: The code for timer function and code format modification and comments.
+Yilan Wei: Responsible for the TTS (Text-to-Speech) component; The code of broadcasting time in Chinese. Testing and optimizing the code; Resource documentation.
+Yining Lei: The code for changing timezone and alarm function; Consolidate and debug code contributed by others to ensure it runs smoothly; Technical reflection.
+Jinwen Shi: The code to change the background according to day and night; All non-technical documentation; Recording of English time telling.
+Lifan Qu: The code for the Chinese-English translation function; Responsible for recording the short video demonstration.
+Siqi Zheng: The code of broadcasting time in English. Responsible for the TTS component.
+
+All: Negotiation of the talking clock function and interface, and the content of the video demonstration.
 
 ### Project Workflow
 
@@ -87,11 +89,11 @@ Shenghuan Ding
 
 ### Code Difficulties
 
-When it comes to code, the biggest difficulty is that the audio of time, alarm clock, and timer cannot be played due to various reasons. One example is that, the codes of time announcement and the alarm are written by different people. In the part of time announcement, she uses "pygame quit()" at the end of her code, which makes a great influence on the later music playing of alarm. We tried many times to find this problem. 
+When it comes to code, the biggest difficulty is that the audio of time, alarm clock, and timer cannot be played due to various reasons. One example is that, the codes of time announcement and the alarm are written by different people. In the part of time announcement, she uses "pygame quit()" at the end of her code, which makes a great influence on the later music playing of alarm. We tried many times to find this problem.
 
-There are also other difficulties when learning how to collaborate on GitHub. For example, redundant files will not be deleted in the repository at first (we learnt how to clone repository at last), so we could only upload the files with same names to overwrite the previous files, which makes it troublesome to collaborate on Github. Therefore, most of time, code of different functions is sent to code integration manager (Yining Lei) directly. 
+There are also other difficulties when learning how to collaborate on GitHub. For example, redundant files will not be deleted in the repository at first (we learnt how to clone repository at last), so we could only upload the files with same names to overwrite the previous files, which makes it troublesome to collaborate on Github. Therefore, most of time, code of different functions is sent to code integration manager (Yining Lei) directly.
 
-Besides, the combination of different functions that everyone is responsible for cannot run smoothly because everyone has different coding habits. For example, some people like to use "grid", while others like to use "pack". 
+Besides, the combination of different functions that everyone is responsible for cannot run smoothly because everyone has different coding habits. For example, some people like to use "grid", while others like to use "pack".
 
 In future cooperation, unified standards and variable names should be formulated before division of labor. In addition, everyone should learn how to clone the reporsitory from the Github to their local computer first of all.
 
