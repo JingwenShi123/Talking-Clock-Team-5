@@ -85,11 +85,15 @@ Shenghuan Ding
 
 **3. Utilizing Appropriate Waiting Durations**: Only when audio durations are approximately equivalent can we determine suitable waiting periods between two audio segments. On this foundation, constant adjustments are made to achieve the most appropriate interval duration. Too short of a pause can lead to unclear time announcements, while overly lengthy pauses can reduce efficiency and make the announcements sound less like artificial intelligence-generated responses.
 
-### Difficulties
+### Code Difficulties
 
-The biggest difficulty is that the audio of time, alarm clock, and timer cannot be played due to various reasons. Even the same code can sometimes be played and sometimes cannot be played. Finally, it was solved by adding "pygame.time.delay" by asking chatgpt for help.
+When it comes to code, the biggest difficulty is that the audio of time, alarm clock, and timer cannot be played due to various reasons. One example is that, the codes of time announcement and the alarm are written by different people. In the part of time announcement, she uses "pygame quit()" at the end of her code, which makes a great influence on the later music playing of alarm. We tried many times to find this problem. 
 
-There are also some difficulties when learning how to collaborate on GitHub. For example, redundant files will not be deleted in the repository at first, and the combination of different functions that everyone is responsible for cannot run smoothly because everyone has different coding habits. For example, some people like to use "grid", while others like to use "pack". Finally, we learned how to use the clone repository, which greatly improved the speed of pulling and pushing. And in future cooperation, unified standards and variable names can be formulated before division of labor.
+There are also other difficulties when learning how to collaborate on GitHub. For example, redundant files will not be deleted in the repository at first (we learnt how to clone repository at last), so we could only upload the files with same names to overwrite the previous files, which makes it troublesome to collaborate on Github. Therefore, most of time, code of different functions is sent to code integration manager (Yining Lei) directly. 
+
+Besides, the combination of different functions that everyone is responsible for cannot run smoothly because everyone has different coding habits. For example, some people like to use "grid", while others like to use "pack". 
+
+In future cooperation, unified standards and variable names should be formulated before division of labor. In addition, everyone should learn how to clone the reporsitory from the Github to their local computer first of all.
 
 ## User Manual
 
