@@ -28,12 +28,12 @@ the steps above can be skipped)
 
 ### Team organization
 
-Shenghuan Ding: The code for timer function and code format modification and comments.
-Yilan Wei: Responsible for the TTS (Text-to-Speech) component; The code of broadcasting time in Chinese. Testing and optimizing the code; Resource documentation.
-Yining Lei: The code for changing timezone and alarm function; Consolidate and debug code contributed by others to ensure it runs smoothly; Technical reflection.
-Jinwen Shi: The code to change the background according to day and night; All non-technical documentation; Recording of English time telling.
-Lifan Qu: The code for the Chinese-English translation function; Responsible for recording the short video demonstration.
-Siqi Zheng: The code of broadcasting time in English. Responsible for the TTS component.
+**Shenghuan Ding: **The code for timer function and code format modification and comments.
+**Yilan Wei: **Responsible for the TTS (Text-to-Speech) component; The code of broadcasting time in Chinese. Testing and optimizing the code; Resource documentation.
+**Yining Lei: **The code for changing timezone and alarm function; Consolidate and debug code contributed by others to ensure it runs smoothly; Technical reflection.
+**Jinwen Shi: **The code to change the background according to day and night; All non-technical documentation; Recording of English time telling.
+**Lifan Qu: **The code for the Chinese-English translation function; Responsible for recording the short video demonstration.
+**Siqi Zheng:** The code of broadcasting time in English. Responsible for the TTS component.
 
 All: Negotiation of the talking clock function and interface, and the content of the video demonstration.
 
